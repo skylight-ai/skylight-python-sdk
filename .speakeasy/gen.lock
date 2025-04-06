@@ -5,8 +5,8 @@ management:
   docVersion: 1.0.1
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.2
-  configChecksum: 69517b7a0932e9feaadbb91a735a1cdc
+  releaseVersion: 0.0.3
+  configChecksum: 9acd859045d8090f5ebeb99635e05f8a
   repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
   published: true
