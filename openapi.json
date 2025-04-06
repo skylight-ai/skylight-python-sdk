@@ -3,23 +3,23 @@
   "info": {
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
-    "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows VMs.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.1"
+    "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows instances.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
+    "version": "1.0.7"
   },
   "paths": {
     "/windows/start": {
       "post": {
         "tags": [
-          "windows"
+          "Windows"
         ],
-        "summary": "Start Vm",
-        "description": "Start a new Windows VM instance.\n\n- timeout_minutes: Optional timeout in minutes (default: 60)\n\nRequires API key authentication.",
+        "summary": "Start Instance",
+        "description": "Start a new Windows  instance.\n\n- timeout_minutes: Optional timeout in minutes (default: 60)\n\nRequires API key authentication.",
         "operationId": "start",
         "requestBody": {
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/VMRequest"
+                "$ref": "#/components/schemas/InstanceRequest"
               }
             }
           },
@@ -27,11 +27,11 @@
         },
         "responses": {
           "200": {
-            "description": "VM started successfully",
+            "description": "Instance started successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VMStartResponse"
+                  "$ref": "#/components/schemas/InstanceStartResponse"
                 }
               }
             }
@@ -74,90 +74,12 @@
         ]
       }
     },
-    "/windows/install/{instance_id}": {
-      "post": {
-        "tags": [
-          "windows"
-        ],
-        "summary": "Install Chocolatey Packages",
-        "description": "Install Chocolatey packages on a Windows VM. Find a list of packages here: https://community.chocolatey.org/packages.\n\nRequires API key authentication.",
-        "operationId": "install",
-        "security": [
-          {
-            "apikey": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "instance_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Instance Id"
-            }
-          }
-        ],
-        "requestBody": {
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/PackageInstallRequest"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "Packages installation initiated",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/PackageInstallResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Invalid/missing API key or insufficient credit balance",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
     "/windows/pause/{instance_id}": {
       "post": {
         "tags": [
-          "windows"
+          "Windows"
         ],
-        "summary": "Pause Vm",
+        "summary": "Pause Instance",
         "operationId": "pause",
         "security": [
           {
@@ -177,11 +99,11 @@
         ],
         "responses": {
           "200": {
-            "description": "VM paused successfully",
+            "description": "Instance hibernated successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VMPauseResponse"
+                  "$ref": "#/components/schemas/InstanceOperationResponse"
                 }
               }
             }
@@ -223,9 +145,9 @@
     "/windows/resume/{instance_id}": {
       "post": {
         "tags": [
-          "windows"
+          "Windows"
         ],
-        "summary": "Resume Vm",
+        "summary": "Resume Instance",
         "operationId": "resume",
         "security": [
           {
@@ -245,11 +167,79 @@
         ],
         "responses": {
           "200": {
-            "description": "VM resumed successfully",
+            "description": "Instance resumed successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VMResumeResponse"
+                  "$ref": "#/components/schemas/InstanceOperationResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid/missing API key or insufficient credit balance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ServerErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        },
+        "description": "Requires API key authentication."
+      }
+    },
+    "/windows/terminate/{instance_id}": {
+      "post": {
+        "tags": [
+          "Windows"
+        ],
+        "summary": "Terminate Instance",
+        "operationId": "terminate",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Instance Id"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Instance terminated successfully",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/InstanceOperationResponse"
                 }
               }
             }
@@ -291,9 +281,9 @@
     "/windows/state/{instance_id}": {
       "get": {
         "tags": [
-          "windows"
+          "Windows"
         ],
-        "summary": "Get Vm Status",
+        "summary": "Get Instance State",
         "operationId": "state",
         "security": [
           {
@@ -313,11 +303,11 @@
         ],
         "responses": {
           "200": {
-            "description": "VM status retrieved successfully",
+            "description": "Instance status retrieved successfully",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VMStatusResponse"
+                  "$ref": "#/components/schemas/InstanceStatusResponse"
                 }
               }
             }
@@ -359,9 +349,9 @@
     "/windows/instances": {
       "get": {
         "tags": [
-          "windows"
+          "Windows"
         ],
-        "summary": "Get Instances",
+        "summary": "Get All Instances",
         "operationId": "instances",
         "responses": {
           "200": {
@@ -369,7 +359,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/VMInstancesListResponse"
+                  "$ref": "#/components/schemas/InstancesListResponse"
                 }
               }
             }
@@ -400,81 +390,13 @@
             "apikey": []
           }
         ],
-        "description": "Requires API key authentication."
-      }
-    },
-    "/windows/terminate/{instance_id}": {
-      "post": {
-        "tags": [
-          "windows"
-        ],
-        "summary": "Terminate Vm",
-        "operationId": "terminate",
-        "security": [
-          {
-            "apikey": []
-          }
-        ],
-        "parameters": [
-          {
-            "name": "instance_id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "title": "Instance Id"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "VM terminated successfully",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/VMTerminateResponse"
-                }
-              }
-            }
-          },
-          "403": {
-            "description": "Invalid/missing API key or insufficient credit balance",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ForbiddenErrorResponse"
-                }
-              }
-            }
-          },
-          "500": {
-            "description": "Internal server error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/ServerErrorResponse"
-                }
-              }
-            }
-          },
-          "422": {
-            "description": "Validation Error",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/HTTPValidationError"
-                }
-              }
-            }
-          }
-        },
         "description": "Requires API key authentication."
       }
     },
     "/interact/click/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Click",
         "description": "Perform a click operation at the specified coordinates or current position\n\n- If x and y are provided, click at those coordinates\n- If x and y are omitted, click at the current cursor position\n- Use button=\"left\", clicks=1 for a single left click\n- Use button=\"right\", clicks=1 for a right click\n- Use button=\"middle\", clicks=1 for a middle click\n- Use button=\"left\", clicks=2 for a double click\n\nRequires API key authentication.",
@@ -562,7 +484,7 @@
     "/interact/drag/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Drag",
         "description": "Perform a drag operation along a path of coordinates\n\n- path: List of points to drag through, each with 'x' and 'y' coordinates\n- button: Mouse button to use for dragging (default: \"left\")\n\nRequires API key authentication.",
@@ -650,10 +572,10 @@
     "/interact/screenshot/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Take Screenshot",
-        "description": "Take a screenshot of the VM\n\nRequires API key authentication.",
+        "description": "Take a screenshot of the instance\n\nRequires API key authentication.",
         "operationId": "screenshot",
         "security": [
           {
@@ -673,7 +595,7 @@
         ],
         "responses": {
           "200": {
-            "description": "Screenshot image of the VM",
+            "description": "Screenshot image of the instance",
             "content": {
               "application/json": {
                 "schema": {}
@@ -726,7 +648,7 @@
     "/interact/move/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Move Mouse",
         "description": "Move the mouse to the specified coordinates\n\nRequires API key authentication.",
@@ -814,7 +736,7 @@
     "/interact/keypress/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Keypress",
         "description": "Press the specified keys simultaneously (e.g. ['ctrl', 'alt', 'delete'])\n\nRequires API key authentication.",
@@ -902,7 +824,7 @@
     "/interact/type/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Type Text",
         "description": "Type the specified text with optional delay between keystrokes\n\nRequires API key authentication.",
@@ -990,7 +912,7 @@
     "/interact/scroll/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Scroll",
         "description": "Scroll at the specified coordinates\n\nRequires API key authentication.",
@@ -1078,10 +1000,10 @@
     "/interact/file/{instance_id}": {
       "post": {
         "tags": [
-          "interact"
+          "Interact"
         ],
         "summary": "Get File",
-        "description": "Get a secure download link for a file on the VM\n\nGenerates a presigned S3 URL for the client to download the file directly\n\nRequires API key authentication.",
+        "description": "Get a secure download link for a file on the instance\n\nGenerates a presigned S3 URL for the client to download the file directly\n\nRequires API key authentication.",
         "operationId": "get_file",
         "security": [
           {
@@ -1168,10 +1090,88 @@
         }
       }
     },
+    "/interact/install/{instance_id}": {
+      "post": {
+        "tags": [
+          "Interact"
+        ],
+        "summary": "Install Applications",
+        "description": "Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.\n\nRequires API key authentication.",
+        "operationId": "install",
+        "security": [
+          {
+            "apikey": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "instance_id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "title": "Instance Id"
+            }
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/PackageInstallRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Packages installation initiated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/PackageInstallResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Invalid/missing API key or insufficient credit balance",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/ErrorResponse"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Validation Error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/HTTPValidationError"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/agent/run/{instance_id}": {
       "post": {
         "tags": [
-          "agent"
+          "Agent"
         ],
         "summary": "Run Agent",
         "description": "Run a loop with Anthropic's computer use agent to perform tasks on the VM.\n\nRequires API key authentication.",
@@ -1239,9 +1239,9 @@
     "/agent/stop/{instance_id}": {
       "post": {
         "tags": [
-          "agent"
+          "Agent"
         ],
-        "summary": "Stop Agent Endpoint",
+        "summary": "Stop Agent",
         "description": "Stop a running agent for a specific instance.\n\nRequires API key authentication.",
         "operationId": "stop",
         "security": [
@@ -1307,9 +1307,9 @@
     "/agent/status/{agent_id}": {
       "get": {
         "tags": [
-          "agent"
+          "Agent"
         ],
-        "summary": "Get Agent Status Endpoint",
+        "summary": "Get Agent State",
         "description": "Get the current status of an agent for a specific instance.\n\nRequires API key authentication.",
         "operationId": "status",
         "security": [
@@ -1334,7 +1334,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/StandardResponse"
+                  "$ref": "#/components/schemas/AgentStatusResponse"
                 }
               }
             }
@@ -1375,6 +1375,111 @@
   },
   "components": {
     "schemas": {
+      "AgentStatusResponse": {
+        "properties": {
+          "agent_status": {
+            "type": "string",
+            "title": "Agent Status",
+            "description": "Current status of the agent",
+            "example": "running"
+          },
+          "is_running": {
+            "type": "boolean",
+            "title": "Is Running",
+            "description": "Whether the agent is currently running",
+            "example": true
+          },
+          "total_steps": {
+            "type": "integer",
+            "title": "Total Steps",
+            "description": "Total number of steps executed",
+            "example": 5
+          },
+          "step_count": {
+            "type": "integer",
+            "title": "Step Count",
+            "description": "Number of steps in memory",
+            "example": 5
+          },
+          "final_summary": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Final Summary",
+            "description": "Final summary of agent execution"
+          },
+          "files": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Files",
+            "description": "List of files downloaded by the agent"
+          },
+          "steps": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array",
+            "title": "Steps",
+            "description": "List of steps executed by the agent"
+          },
+          "created_at": {
+            "type": "string",
+            "title": "Created At",
+            "description": "Timestamp when the agent was created"
+          },
+          "query": {
+            "type": "string",
+            "title": "Query",
+            "description": "Original query given to the agent"
+          },
+          "agent_id": {
+            "type": "string",
+            "title": "Agent Id",
+            "description": "Unique identifier for the agent"
+          }
+        },
+        "type": "object",
+        "required": [
+          "agent_status",
+          "is_running",
+          "total_steps",
+          "step_count",
+          "files",
+          "steps",
+          "created_at",
+          "query",
+          "agent_id"
+        ],
+        "title": "AgentStatusResponse",
+        "example": {
+          "agent_id": "agent-123456",
+          "agent_status": "running",
+          "created_at": "2023-01-01T12:00:00Z",
+          "files": [
+            {
+              "description": "Downloaded PDF",
+              "filename": "document.pdf",
+              "timestamp": "2023-01-01T12:00:00Z"
+            }
+          ],
+          "final_summary": "Successfully completed all tasks",
+          "is_running": true,
+          "query": "Find and download information about Windows",
+          "step_count": 5,
+          "steps": [
+            "Step 1: Search for information",
+            "Step 2: Download file"
+          ],
+          "total_steps": 5
+        }
+      },
       "ClaudeRequest": {
         "properties": {
           "query": {
@@ -1577,6 +1682,175 @@
         "type": "object",
         "title": "HTTPValidationError"
       },
+      "InstanceOperationResponse": {
+        "properties": {
+          "status": {
+            "type": "string",
+            "title": "Status",
+            "description": "Status of the operation",
+            "example": "success"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable status message",
+            "example": "Operation completed successfully"
+          },
+          "state": {
+            "type": "string",
+            "title": "State",
+            "description": "State of the instance (running, pending, hibernated, terminated)",
+            "example": "running"
+          },
+          "livestream_url": {
+            "type": "string",
+            "title": "Livestream Url",
+            "description": "URL to livestream the instance",
+            "example": "launchskylight.com/embed/i-123456"
+          }
+        },
+        "type": "object",
+        "required": [
+          "status",
+          "message",
+          "state",
+          "livestream_url"
+        ],
+        "title": "InstanceOperationResponse",
+        "example": {
+          "livestream_url": "<string>",
+          "message": "<string>",
+          "state": "<string>",
+          "status": "<string>"
+        }
+      },
+      "InstanceRequest": {
+        "properties": {
+          "api_key": {
+            "anyOf": [
+              {
+                "type": "string"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Api Key",
+            "description": "Optional API key for authentication"
+          },
+          "timeout_minutes": {
+            "anyOf": [
+              {
+                "type": "integer"
+              },
+              {
+                "type": "null"
+              }
+            ],
+            "title": "Timeout Minutes",
+            "description": "Timeout in minutes before instance auto-termination",
+            "default": 60
+          }
+        },
+        "type": "object",
+        "title": "InstanceRequest"
+      },
+      "InstanceStartResponse": {
+        "properties": {
+          "instance_id": {
+            "type": "string",
+            "title": "Instance Id",
+            "description": "Unique identifier of the created instance"
+          },
+          "message": {
+            "type": "string",
+            "title": "Message",
+            "description": "Human-readable status message",
+            "example": "Instance ready to use"
+          },
+          "livestream_url": {
+            "type": "string",
+            "title": "Livestream Url",
+            "description": "URL to livestream the instance",
+            "example": "launchskylight.com/embed/i-123456"
+          },
+          "state": {
+            "type": "string",
+            "title": "State",
+            "description": "State of the instance (running, pending, hibernated, terminated)",
+            "example": "running"
+          }
+        },
+        "type": "object",
+        "required": [
+          "instance_id",
+          "message",
+          "livestream_url",
+          "state"
+        ],
+        "title": "InstanceStartResponse",
+        "example": {
+          "instance_id": "<string>",
+          "livestream_url": "<string>",
+          "message": "<string>",
+          "state": "<string>"
+        }
+      },
+      "InstanceStatusResponse": {
+        "properties": {
+          "state": {
+            "type": "string",
+            "title": "State",
+            "description": "Current state of the instance",
+            "example": "running"
+          },
+          "knowledge": {
+            "type": "string",
+            "title": "Knowledge",
+            "description": "Current knowledge of the instance",
+            "example": "unknown"
+          }
+        },
+        "type": "object",
+        "required": [
+          "state",
+          "knowledge"
+        ],
+        "title": "InstanceStatusResponse",
+        "example": {
+          "knowledge": "<string>",
+          "state": "<string>"
+        }
+      },
+      "InstancesListResponse": {
+        "properties": {
+          "instances": {
+            "items": {
+              "type": "object"
+            },
+            "type": "array",
+            "title": "Instances",
+            "description": "List of instance IDs and states associated with the API key"
+          }
+        },
+        "type": "object",
+        "required": [
+          "instances"
+        ],
+        "title": "InstancesListResponse",
+        "example": {
+          "instances": [
+            {
+              "aws_state": "running",
+              "instance_id": "i-123456"
+            },
+            {
+              "aws_state": "stopped",
+              "instance_id": "i-789012"
+            }
+          ]
+        }
+      },
       "KeyRequest": {
         "properties": {
           "keys": {
@@ -1644,14 +1918,26 @@
           "status": {
             "type": "string",
             "title": "Status",
-            "description": "Status of the package installation",
+            "description": "Status of the operation",
             "example": "success"
           },
           "message": {
             "type": "string",
             "title": "Message",
             "description": "Human-readable status message",
-            "example": "Packages installation initiated"
+            "example": "Operation completed successfully"
+          },
+          "state": {
+            "type": "string",
+            "title": "State",
+            "description": "State of the instance (running, pending, hibernated, terminated)",
+            "example": "running"
+          },
+          "livestream_url": {
+            "type": "string",
+            "title": "Livestream Url",
+            "description": "URL to livestream the instance",
+            "example": "launchskylight.com/embed/i-123456"
           },
           "command_id": {
             "anyOf": [
@@ -1663,18 +1949,18 @@
               }
             ],
             "title": "Command Id",
-            "description": "Command ID for tracking the installation progress"
+            "description": "Command ID for tracking installation progress"
           }
         },
         "type": "object",
         "required": [
           "status",
-          "message"
+          "message",
+          "state",
+          "livestream_url"
         ],
         "title": "PackageInstallResponse",
         "example": {
-          "command_id": "<string>",
-          "message": "<string>",
           "status": "<string>"
         }
       },
@@ -1800,227 +2086,6 @@
         "example": {
           "interval": 0.05,
           "text": "Hello, world!"
-        }
-      },
-      "VMInstancesListResponse": {
-        "properties": {
-          "instances": {
-            "items": {
-              "type": "object"
-            },
-            "type": "array",
-            "title": "Instances",
-            "description": "List of instances associated with the API key"
-          }
-        },
-        "type": "object",
-        "required": [
-          "instances"
-        ],
-        "title": "VMInstancesListResponse",
-        "example": {
-          "instances": [
-            {
-              "created_at": "<datetime>",
-              "instance_id": "<string>",
-              "ip_address": "<string>",
-              "status": "<string>"
-            }
-          ]
-        }
-      },
-      "VMPauseResponse": {
-        "properties": {
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the VM pause operation",
-            "example": "success"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message",
-            "description": "Human-readable status message",
-            "example": "VM hibernated successfully"
-          }
-        },
-        "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
-        "title": "VMPauseResponse",
-        "example": {
-          "message": "<string>",
-          "status": "<string>"
-        }
-      },
-      "VMRequest": {
-        "properties": {
-          "api_key": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Api Key",
-            "description": "Optional API key for authentication"
-          },
-          "timeout_minutes": {
-            "anyOf": [
-              {
-                "type": "integer"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Timeout Minutes",
-            "description": "Timeout in minutes before VM auto-termination",
-            "default": 60
-          }
-        },
-        "type": "object",
-        "title": "VMRequest"
-      },
-      "VMResumeResponse": {
-        "properties": {
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the VM resume operation",
-            "example": "success"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message",
-            "description": "Human-readable status message",
-            "example": "VM resumed successfully"
-          }
-        },
-        "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
-        "title": "VMResumeResponse",
-        "example": {
-          "message": "<string>",
-          "status": "<string>"
-        }
-      },
-      "VMStartResponse": {
-        "properties": {
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the VM start operation",
-            "example": "success"
-          },
-          "instance_id": {
-            "type": "string",
-            "title": "Instance Id",
-            "description": "Unique identifier of the created VM instance"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message",
-            "description": "Human-readable status message",
-            "example": "VM ready to use"
-          }
-        },
-        "type": "object",
-        "required": [
-          "status",
-          "instance_id",
-          "message"
-        ],
-        "title": "VMStartResponse",
-        "example": {
-          "instance_id": "<string>",
-          "message": "<string>",
-          "status": "<string>"
-        }
-      },
-      "VMStatusResponse": {
-        "properties": {
-          "state": {
-            "type": "string",
-            "enum": [
-              "starting",
-              "running",
-              "stopping",
-              "stopped",
-              "shutting-down",
-              "terminated"
-            ],
-            "title": "State",
-            "description": "Current state of the VM",
-            "example": "running"
-          },
-          "ip_address": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Ip Address",
-            "description": "Public IP address of the VM"
-          },
-          "launch_time": {
-            "anyOf": [
-              {
-                "type": "string"
-              },
-              {
-                "type": "null"
-              }
-            ],
-            "title": "Launch Time",
-            "description": "ISO format timestamp of when the VM was launched"
-          }
-        },
-        "type": "object",
-        "required": [
-          "state"
-        ],
-        "title": "VMStatusResponse",
-        "example": {
-          "ip_address": "<string>",
-          "launch_time": "<datetime>",
-          "state": "<string>"
-        }
-      },
-      "VMTerminateResponse": {
-        "properties": {
-          "status": {
-            "type": "string",
-            "title": "Status",
-            "description": "Status of the VM termination",
-            "example": "success"
-          },
-          "message": {
-            "type": "string",
-            "title": "Message",
-            "description": "Human-readable status message",
-            "example": "VM terminated successfully"
-          }
-        },
-        "type": "object",
-        "required": [
-          "status",
-          "message"
-        ],
-        "title": "VMTerminateResponse",
-        "example": {
-          "message": "<string>",
-          "status": "<string>"
         }
       },
       "ValidationError": {
