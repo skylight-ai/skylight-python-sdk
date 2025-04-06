@@ -1,22 +1,22 @@
 workflowVersion: 1.0.0
 speakeasyVersion: latest
 sources:
-   Skylight API:
-      inputs:
-         - location: openapi.json
-      registry:
-         location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
+    Skylight API:
+        inputs:
+            - location: openapi.json
+        registry:
+            location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
 targets:
-   skylight:
-      target: python
-      source: Skylight API
-      publish:
-         pypi:
-            token: $pypi_token
-      codeSamples:
-         output: code-samples.yaml
-         registry:
-            location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-python-code-samples
-         labelOverride:
-            fixedValue: Python (SDK)
-         blocking: false
+    skylight:
+        target: python
+        source: Skylight API
+        publish:
+            pypi:
+                token: $pypi_token
+        codeSamples:
+            output: code-samples.yaml
+            registry:
+                location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-python-code-samples
+            labelOverride:
+                fixedValue: Python (SDK)
+            blocking: false

@@ -1,4 +1,4 @@
-# PackageInstallResponse
+# InstanceOperationResponse
 
 
 ## Fields
@@ -9,4 +9,3 @@
 | `message`                                                        | *str*                                                            | :heavy_check_mark:                                               | Human-readable status message                                    | Operation completed successfully                                 |
 | `state`                                                          | *str*                                                            | :heavy_check_mark:                                               | State of the instance (running, pending, hibernated, terminated) | running                                                          |
 | `livestream_url`                                                 | *str*                                                            | :heavy_check_mark:                                               | URL to livestream the instance                                   | launchskylight.com/embed/i-123456                                |
-| `command_id`                                                     | *OptionalNullable[str]*                                          | :heavy_minus_sign:                                               | Command ID for tracking installation progress                    |                                                                  |

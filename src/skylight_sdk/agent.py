@@ -260,7 +260,7 @@ class Agent(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.StandardResponse:
-        r"""Stop Agent Endpoint
+        r"""Stop Agent
 
         Stop a running agent for a specific instance.
 
@@ -371,7 +371,7 @@ class Agent(BaseSDK):
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
     ) -> models.StandardResponse:
-        r"""Stop Agent Endpoint
+        r"""Stop Agent
 
         Stop a running agent for a specific instance.
 
@@ -481,8 +481,8 @@ class Agent(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.StandardResponse:
-        r"""Get Agent Status Endpoint
+    ) -> models.AgentStatusResponse:
+        r"""Get Agent State
 
         Get the current status of an agent for a specific instance.
 
@@ -548,7 +548,7 @@ class Agent(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.StandardResponse)
+            return utils.unmarshal_json(http_res.text, models.AgentStatusResponse)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
@@ -592,8 +592,8 @@ class Agent(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.StandardResponse:
-        r"""Get Agent Status Endpoint
+    ) -> models.AgentStatusResponse:
+        r"""Get Agent State
 
         Get the current status of an agent for a specific instance.
 
@@ -659,7 +659,7 @@ class Agent(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.StandardResponse)
+            return utils.unmarshal_json(http_res.text, models.AgentStatusResponse)
         if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData

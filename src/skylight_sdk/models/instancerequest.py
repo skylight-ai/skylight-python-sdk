@@ -12,19 +12,19 @@ from skylight_sdk.types import (
 from typing_extensions import NotRequired, TypedDict
 
 
-class VMRequestTypedDict(TypedDict):
+class InstanceRequestTypedDict(TypedDict):
     api_key: NotRequired[Nullable[str]]
     r"""Optional API key for authentication"""
     timeout_minutes: NotRequired[Nullable[int]]
-    r"""Timeout in minutes before VM auto-termination"""
+    r"""Timeout in minutes before instance auto-termination"""
 
 
-class VMRequest(BaseModel):
+class InstanceRequest(BaseModel):
     api_key: OptionalNullable[str] = UNSET
     r"""Optional API key for authentication"""
 
     timeout_minutes: OptionalNullable[int] = UNSET
-    r"""Timeout in minutes before VM auto-termination"""
+    r"""Timeout in minutes before instance auto-termination"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

@@ -14,22 +14,32 @@ from typing_extensions import NotRequired, TypedDict
 
 class PackageInstallResponseTypedDict(TypedDict):
     status: str
-    r"""Status of the package installation"""
+    r"""Status of the operation"""
     message: str
     r"""Human-readable status message"""
+    state: str
+    r"""State of the instance (running, pending, hibernated, terminated)"""
+    livestream_url: str
+    r"""URL to livestream the instance"""
     command_id: NotRequired[Nullable[str]]
-    r"""Command ID for tracking the installation progress"""
+    r"""Command ID for tracking installation progress"""
 
 
 class PackageInstallResponse(BaseModel):
     status: str
-    r"""Status of the package installation"""
+    r"""Status of the operation"""
 
     message: str
     r"""Human-readable status message"""
 
+    state: str
+    r"""State of the instance (running, pending, hibernated, terminated)"""
+
+    livestream_url: str
+    r"""URL to livestream the instance"""
+
     command_id: OptionalNullable[str] = UNSET
-    r"""Command ID for tracking the installation progress"""
+    r"""Command ID for tracking installation progress"""
 
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):

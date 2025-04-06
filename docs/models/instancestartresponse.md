@@ -1,0 +1,11 @@
+# InstanceStartResponse
+
+
+## Fields
+
+| Field                                                            | Type                                                             | Required                                                         | Description                                                      | Example                                                          |
+| ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `instance_id`                                                    | *str*                                                            | :heavy_check_mark:                                               | Unique identifier of the created instance                        |                                                                  |
+| `message`                                                        | *str*                                                            | :heavy_check_mark:                                               | Human-readable status message                                    | Instance ready to use                                            |
+| `livestream_url`                                                 | *str*                                                            | :heavy_check_mark:                                               | URL to livestream the instance                                   | launchskylight.com/embed/i-123456                                |
+| `state`                                                          | *str*                                                            | :heavy_check_mark:                                               | State of the instance (running, pending, hibernated, terminated) | running                                                          |
