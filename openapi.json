@@ -4,7 +4,7 @@
     "title": "Skylight API",
     "summary": "Skylight API Documentation",
     "description": "\n        # Skylight API Documentation\n        \n        This API allows you to interact with Windows VMs.\n        \n        ## Authentication\n        \n        All endpoints require API key authentication. Include your API key in the `X-API-Key` header.\n         \n        ## Support\n        \n        For support, please join our discord.\n        ",
-    "version": "1.0.0"
+    "version": "1.0.1"
   },
   "paths": {
     "/windows/start": {
@@ -2066,6 +2066,12 @@
       }
     }
   },
+  "servers": [
+    {
+      "url": "https://api.launchskylight.com",
+      "description": "Skylight API production server"
+    }
+  ],
   "security": [
     {
       "apikey": []
