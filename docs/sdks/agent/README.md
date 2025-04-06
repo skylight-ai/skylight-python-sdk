@@ -23,7 +23,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -69,7 +68,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -114,7 +112,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 

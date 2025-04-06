@@ -6,13 +6,13 @@ from .sdkconfiguration import SDKConfiguration
 from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 import httpx
-from skylight_sdk import models
+from skylight_sdk import models, utils
 from skylight_sdk._hooks import SDKHooks
 from skylight_sdk.agent import Agent
 from skylight_sdk.interact import Interact
 from skylight_sdk.types import OptionalNullable, UNSET
 from skylight_sdk.windows import Windows
-from typing import Any, Callable, Optional, Union, cast
+from typing import Any, Callable, Dict, Optional, Union, cast
 import weakref
 
 
@@ -40,8 +40,10 @@ class Skylight(BaseSDK):
 
     def __init__(
         self,
-        server_url: str,
         apikey: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
+        server_idx: Optional[int] = None,
+        server_url: Optional[str] = None,
+        url_params: Optional[Dict[str, str]] = None,
         client: Optional[HttpClient] = None,
         async_client: Optional[AsyncHttpClient] = None,
         retry_config: OptionalNullable[RetryConfig] = UNSET,
@@ -87,6 +89,10 @@ class Skylight(BaseSDK):
         else:
             security = models.Security(apikey=apikey)
 
+        if server_url is not None:
+            if url_params is not None:
+                server_url = utils.template_url(server_url, url_params)
+
         BaseSDK.__init__(
             self,
             SDKConfiguration(
@@ -96,6 +102,7 @@ class Skylight(BaseSDK):
                 async_client_supplied=async_client_supplied,
                 security=security,
                 server_url=server_url,
+                server_idx=server_idx,
                 retry_config=retry_config,
                 timeout_ms=timeout_ms,
                 debug_logger=debug_logger,

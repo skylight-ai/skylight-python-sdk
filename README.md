@@ -44,6 +44,7 @@ Skylight API: Skylight API Documentation
   * [Available Resources and Operations](#available-resources-and-operations)
   * [Retries](#retries)
   * [Error Handling](#error-handling)
+  * [Server Selection](#server-selection)
   * [Custom HTTP Client](#custom-http-client)
   * [Resource Management](#resource-management)
   * [Debugging](#debugging)
@@ -55,10 +56,6 @@ Skylight API: Skylight API Documentation
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
-
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
 
 > [!NOTE]
 > **Python version upgrade policy**
@@ -72,7 +69,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+<UNSET>.git
+pip install skylight-sdk
 ```
 
 ### Poetry
@@ -80,7 +77,7 @@ pip install git+<UNSET>.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+<UNSET>.git
+poetry add skylight-sdk
 ```
 
 ### Shell and script usage with `uv`
@@ -137,7 +134,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -159,7 +155,6 @@ from skylight_sdk import Skylight
 async def main():
 
     async with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
 
@@ -190,7 +185,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -252,7 +246,6 @@ from skylight_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -272,7 +265,6 @@ from skylight_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Skylight(
-    server_url="https://api.example.com",
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
@@ -316,7 +308,6 @@ from skylight_sdk import Skylight, models
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
     res = None
@@ -341,6 +332,30 @@ with Skylight(
         raise(e)
 ```
 <!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Override Server URL Per-Client
+
+The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+```python
+import os
+from skylight_sdk import Skylight
+
+
+with Skylight(
+    server_url="https://api.launchskylight.com",
+    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+) as skylight:
+
+    res = skylight.windows.start()
+
+    # Handle response
+    print(res)
+
+```
+<!-- End Server Selection [server] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
@@ -436,7 +451,6 @@ from skylight_sdk import Skylight
 def main():
 
     with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
         # Rest of application here...
@@ -446,7 +460,6 @@ def main():
 async def amain():
 
     async with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
         # Rest of application here...
@@ -464,7 +477,7 @@ from skylight_sdk import Skylight
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = Skylight(server_url="https://example.com", debug_logger=logging.getLogger("skylight_sdk"))
+s = Skylight(debug_logger=logging.getLogger("skylight_sdk"))
 ```
 
 You can also enable a default debug logger by setting an environment variable `SKYLIGHT_DEBUG` to true.
