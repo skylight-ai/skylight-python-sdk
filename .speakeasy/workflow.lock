@@ -2,32 +2,36 @@ speakeasyVersion: 1.529.1
 sources:
     Skylight API:
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:aba47acb018bff0a88183d85abca3597f53b45b9d385e28be5b7b607100d030e
-        sourceBlobDigest: sha256:48cb462641eb4881c30bfad8a01f0afc44f2c995f052a7c974c8a1e9bacecd1f
+        sourceRevisionDigest: sha256:a808bb80accf365ea9720e6b00c7547ec7ed00194afde809d9928edc60baac6d
+        sourceBlobDigest: sha256:46a5ca08588249b56ac1b629dac4e44b1e593391a4fdc03094b7a8b6c5e161f4
         tags:
             - latest
-            - 1.0.0
+            - speakeasy-sdk-regen-1743944117
+            - 1.0.1
 targets:
     skylight:
         source: Skylight API
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:aba47acb018bff0a88183d85abca3597f53b45b9d385e28be5b7b607100d030e
-        sourceBlobDigest: sha256:48cb462641eb4881c30bfad8a01f0afc44f2c995f052a7c974c8a1e9bacecd1f
+        sourceRevisionDigest: sha256:a808bb80accf365ea9720e6b00c7547ec7ed00194afde809d9928edc60baac6d
+        sourceBlobDigest: sha256:46a5ca08588249b56ac1b629dac4e44b1e593391a4fdc03094b7a8b6c5e161f4
         codeSamplesNamespace: skylight-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:ac26b72bfe22ee2e17cea4c52595cb3d2d7a7bd3ac60395cb43a307c91949132
+        codeSamplesRevisionDigest: sha256:99ca04d75585c49b9ad6d902e8db02dee8f656596668b4f71e99137eaaa0583f
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
     sources:
         Skylight API:
             inputs:
-                - location: ../openapi.json
+                - location: openapi.json
             registry:
                 location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
     targets:
         skylight:
             target: python
             source: Skylight API
+            publish:
+                pypi:
+                    token: $pypi_token
             codeSamples:
                 registry:
                     location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-python-code-samples

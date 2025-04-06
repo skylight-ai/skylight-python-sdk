@@ -36,29 +36,26 @@ Skylight API: Skylight API Documentation
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [skylight-sdk](#skylight-sdk)
-  * [SDK Installation](#sdk-installation)
-  * [IDE Support](#ide-support)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Resource Management](#resource-management)
-  * [Debugging](#debugging)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
+* [skylight-sdk](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#skylight-sdk)
+  * [SDK Installation](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#sdk-installation)
+  * [IDE Support](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#ide-support)
+  * [SDK Example Usage](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#sdk-example-usage)
+  * [Authentication](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#authentication)
+  * [Available Resources and Operations](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#available-resources-and-operations)
+  * [Retries](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#retries)
+  * [Error Handling](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#error-handling)
+  * [Server Selection](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#server-selection)
+  * [Custom HTTP Client](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#custom-http-client)
+  * [Resource Management](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#resource-management)
+  * [Debugging](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#debugging)
+* [Development](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#development)
+  * [Maturity](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#maturity)
+  * [Contributions](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#contributions)
 
 <!-- End Table of Contents [toc] -->
 
 <!-- Start SDK Installation [installation] -->
 ## SDK Installation
-
-> [!TIP]
-> To finish publishing your SDK to PyPI you must [run your first generation action](https://www.speakeasy.com/docs/github-setup#step-by-step-guide).
-
 
 > [!NOTE]
 > **Python version upgrade policy**
@@ -72,7 +69,7 @@ The SDK can be installed with either *pip* or *poetry* package managers.
 *PIP* is the default package installer for Python, enabling easy installation and management of packages from PyPI via the command line.
 
 ```bash
-pip install git+<UNSET>.git
+pip install skylight-sdk
 ```
 
 ### Poetry
@@ -80,7 +77,7 @@ pip install git+<UNSET>.git
 *Poetry* is a modern tool that simplifies dependency management and package publishing by using a single `pyproject.toml` file to handle project metadata and dependencies.
 
 ```bash
-poetry add git+<UNSET>.git
+poetry add skylight-sdk
 ```
 
 ### Shell and script usage with `uv`
@@ -137,7 +134,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -159,7 +155,6 @@ from skylight_sdk import Skylight
 async def main():
 
     async with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
 
@@ -190,7 +185,6 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -208,33 +202,33 @@ with Skylight(
 <details open>
 <summary>Available methods</summary>
 
-### [agent](docs/sdks/agent/README.md)
+### [agent](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md)
 
-* [run](docs/sdks/agent/README.md#run) - Run Agent
-* [stop](docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
-* [status](docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
+* [run](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#run) - Run Agent
+* [stop](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
+* [status](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
 
-### [interact](docs/sdks/interact/README.md)
+### [interact](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md)
 
-* [click](docs/sdks/interact/README.md#click) - Click
-* [drag](docs/sdks/interact/README.md#drag) - Drag
-* [screenshot](docs/sdks/interact/README.md#screenshot) - Take Screenshot
-* [move](docs/sdks/interact/README.md#move) - Move Mouse
-* [keypress](docs/sdks/interact/README.md#keypress) - Keypress
-* [type](docs/sdks/interact/README.md#type) - Type Text
-* [scroll](docs/sdks/interact/README.md#scroll) - Scroll
-* [get_file](docs/sdks/interact/README.md#get_file) - Get File
+* [click](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#click) - Click
+* [drag](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#drag) - Drag
+* [screenshot](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#screenshot) - Take Screenshot
+* [move](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#move) - Move Mouse
+* [keypress](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#keypress) - Keypress
+* [type](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#type) - Type Text
+* [scroll](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#scroll) - Scroll
+* [get_file](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#get_file) - Get File
 
 
-### [windows](docs/sdks/windows/README.md)
+### [windows](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md)
 
-* [start](docs/sdks/windows/README.md#start) - Start Vm
-* [install](docs/sdks/windows/README.md#install) - Install Chocolatey Packages
-* [pause](docs/sdks/windows/README.md#pause) - Pause Vm
-* [resume](docs/sdks/windows/README.md#resume) - Resume Vm
-* [state](docs/sdks/windows/README.md#state) - Get Vm Status
-* [instances](docs/sdks/windows/README.md#instances) - Get Instances
-* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Vm
+* [start](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#start) - Start Vm
+* [install](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#install) - Install Chocolatey Packages
+* [pause](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#pause) - Pause Vm
+* [resume](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#resume) - Resume Vm
+* [state](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#state) - Get Vm Status
+* [instances](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#instances) - Get Instances
+* [terminate](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#terminate) - Terminate Vm
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
@@ -252,7 +246,6 @@ from skylight_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
@@ -272,7 +265,6 @@ from skylight_sdk.utils import BackoffStrategy, RetryConfig
 
 
 with Skylight(
-    server_url="https://api.example.com",
     retry_config=RetryConfig("backoff", BackoffStrategy(1, 50, 1.1, 100), False),
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
@@ -316,7 +308,6 @@ from skylight_sdk import Skylight, models
 
 
 with Skylight(
-    server_url="https://api.example.com",
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
     res = None
@@ -341,6 +332,30 @@ with Skylight(
         raise(e)
 ```
 <!-- End Error Handling [errors] -->
+
+<!-- Start Server Selection [server] -->
+## Server Selection
+
+### Override Server URL Per-Client
+
+The default server can be overridden globally by passing a URL to the `server_url: str` optional parameter when initializing the SDK client instance. For example:
+```python
+import os
+from skylight_sdk import Skylight
+
+
+with Skylight(
+    server_url="https://api.launchskylight.com",
+    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+) as skylight:
+
+    res = skylight.windows.start()
+
+    # Handle response
+    print(res)
+
+```
+<!-- End Server Selection [server] -->
 
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
@@ -436,7 +451,6 @@ from skylight_sdk import Skylight
 def main():
 
     with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
         # Rest of application here...
@@ -446,7 +460,6 @@ def main():
 async def amain():
 
     async with Skylight(
-        server_url="https://api.example.com",
         apikey=os.getenv("SKYLIGHT_APIKEY", ""),
     ) as skylight:
         # Rest of application here...
@@ -464,7 +477,7 @@ from skylight_sdk import Skylight
 import logging
 
 logging.basicConfig(level=logging.DEBUG)
-s = Skylight(server_url="https://example.com", debug_logger=logging.getLogger("skylight_sdk"))
+s = Skylight(debug_logger=logging.getLogger("skylight_sdk"))
 ```
 
 You can also enable a default debug logger by setting an environment variable `SKYLIGHT_DEBUG` to true.

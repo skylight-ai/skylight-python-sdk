@@ -1,12 +1,15 @@
 lockVersion: 2.0.0
 id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
 management:
-  docChecksum: bcd4ed0df87baf7291086d233d3a29d3
-  docVersion: 1.0.0
+  docChecksum: fba17c9b42b25b6b0ac45763c0bb570b
+  docVersion: 1.0.1
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.1
-  configChecksum: 351971794c6fc051ea3bf9083fe48e6f
+  releaseVersion: 0.0.2
+  configChecksum: 69517b7a0932e9feaadbb91a735a1cdc
+  repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
+  installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
+  published: true
 features:
   python:
     additionalDependencies: 1.0.0
