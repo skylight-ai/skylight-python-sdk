@@ -1,0 +1,12 @@
+# ScrollRequest
+
+
+## Fields
+
+| Field                                                                                  | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `x`                                                                                    | *int*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `y`                                                                                    | *int*                                                                                  | :heavy_check_mark:                                                                     | N/A                                                                                    |
+| `scroll_x`                                                                             | *Optional[int]*                                                                        | :heavy_minus_sign:                                                                     | Horizontal scroll amount                                                               |
+| `scroll_y`                                                                             | *Optional[int]*                                                                        | :heavy_minus_sign:                                                                     | Vertical scroll amount                                                                 |
+| `step`                                                                                 | *OptionalNullable[int]*                                                                | :heavy_minus_sign:                                                                     | Optional step size for scroll movements. If not provided, movement will be continuous. |

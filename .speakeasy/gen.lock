@@ -1,0 +1,429 @@
+lockVersion: 2.0.0
+id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
+management:
+  docChecksum: bcd4ed0df87baf7291086d233d3a29d3
+  docVersion: 1.0.0
+  speakeasyVersion: 1.529.1
+  generationVersion: 2.566.5
+  releaseVersion: 0.0.1
+  configChecksum: 351971794c6fc051ea3bf9083fe48e6f
+features:
+  python:
+    additionalDependencies: 1.0.0
+    constsAndDefaults: 1.0.5
+    core: 5.12.6
+    defaultEnabledRetries: 0.2.0
+    devContainers: 3.0.0
+    enumUnions: 0.1.0
+    envVarSecurityUsage: 0.3.2
+    flatRequests: 1.0.1
+    flattening: 3.1.1
+    globalSecurity: 3.0.3
+    globalSecurityCallbacks: 1.0.0
+    globalSecurityFlattening: 1.0.0
+    globalServerURLs: 3.1.0
+    methodArguments: 1.0.2
+    nullables: 1.0.1
+    responseFormat: 1.0.1
+    retries: 3.0.2
+    sdkHooks: 1.0.1
+    unions: 3.0.4
+generatedFiles:
+  - .devcontainer/README.md
+  - .devcontainer/devcontainer.json
+  - .devcontainer/setup.sh
+  - .gitattributes
+  - .python-version
+  - .vscode/settings.json
+  - USAGE.md
+  - docs/models/button.md
+  - docs/models/clauderequest.md
+  - docs/models/clickrequest.md
+  - docs/models/clickrequest1.md
+  - docs/models/dragrequest.md
+  - docs/models/dragrequest1.md
+  - docs/models/dragrequestbutton.md
+  - docs/models/errorresponse.md
+  - docs/models/forbiddenerrorresponse.md
+  - docs/models/getfilerequest.md
+  - docs/models/getfileresponse200getfile.md
+  - docs/models/httpvalidationerror.md
+  - docs/models/installrequest.md
+  - docs/models/instances.md
+  - docs/models/keypressrequest.md
+  - docs/models/keyrequest.md
+  - docs/models/loc.md
+  - docs/models/messages.md
+  - docs/models/mousemoverequest.md
+  - docs/models/moverequest.md
+  - docs/models/packageinstallrequest.md
+  - docs/models/packageinstallresponse.md
+  - docs/models/pauserequest.md
+  - docs/models/resumerequest.md
+  - docs/models/runrequest.md
+  - docs/models/screenshotrequest.md
+  - docs/models/scrollrequest.md
+  - docs/models/scrollrequest1.md
+  - docs/models/security.md
+  - docs/models/servererrorresponse.md
+  - docs/models/standardresponse.md
+  - docs/models/state.md
+  - docs/models/staterequest.md
+  - docs/models/statusrequest.md
+  - docs/models/stoprequest.md
+  - docs/models/terminaterequest.md
+  - docs/models/typerequest.md
+  - docs/models/typerequest1.md
+  - docs/models/utils/retryconfig.md
+  - docs/models/validationerror.md
+  - docs/models/vminstanceslistresponse.md
+  - docs/models/vmpauseresponse.md
+  - docs/models/vmrequest.md
+  - docs/models/vmresumeresponse.md
+  - docs/models/vmstartresponse.md
+  - docs/models/vmstatusresponse.md
+  - docs/models/vmterminateresponse.md
+  - docs/sdks/agent/README.md
+  - docs/sdks/interact/README.md
+  - docs/sdks/skylight/README.md
+  - docs/sdks/windows/README.md
+  - poetry.toml
+  - py.typed
+  - pylintrc
+  - pyproject.toml
+  - scripts/prepare_readme.py
+  - scripts/publish.sh
+  - src/skylight_sdk/__init__.py
+  - src/skylight_sdk/_hooks/__init__.py
+  - src/skylight_sdk/_hooks/sdkhooks.py
+  - src/skylight_sdk/_hooks/types.py
+  - src/skylight_sdk/_version.py
+  - src/skylight_sdk/agent.py
+  - src/skylight_sdk/basesdk.py
+  - src/skylight_sdk/httpclient.py
+  - src/skylight_sdk/interact.py
+  - src/skylight_sdk/models/__init__.py
+  - src/skylight_sdk/models/apierror.py
+  - src/skylight_sdk/models/clauderequest.py
+  - src/skylight_sdk/models/clickop.py
+  - src/skylight_sdk/models/clickrequest.py
+  - src/skylight_sdk/models/dragop.py
+  - src/skylight_sdk/models/dragrequest.py
+  - src/skylight_sdk/models/errorresponse.py
+  - src/skylight_sdk/models/forbiddenerrorresponse.py
+  - src/skylight_sdk/models/get_fileop.py
+  - src/skylight_sdk/models/httpvalidationerror.py
+  - src/skylight_sdk/models/installop.py
+  - src/skylight_sdk/models/keypressop.py
+  - src/skylight_sdk/models/keyrequest.py
+  - src/skylight_sdk/models/mousemoverequest.py
+  - src/skylight_sdk/models/moveop.py
+  - src/skylight_sdk/models/packageinstallrequest.py
+  - src/skylight_sdk/models/packageinstallresponse.py
+  - src/skylight_sdk/models/pauseop.py
+  - src/skylight_sdk/models/resumeop.py
+  - src/skylight_sdk/models/runop.py
+  - src/skylight_sdk/models/screenshotop.py
+  - src/skylight_sdk/models/scrollop.py
+  - src/skylight_sdk/models/scrollrequest.py
+  - src/skylight_sdk/models/security.py
+  - src/skylight_sdk/models/servererrorresponse.py
+  - src/skylight_sdk/models/standardresponse.py
+  - src/skylight_sdk/models/stateop.py
+  - src/skylight_sdk/models/statusop.py
+  - src/skylight_sdk/models/stopop.py
+  - src/skylight_sdk/models/terminateop.py
+  - src/skylight_sdk/models/typeop.py
+  - src/skylight_sdk/models/typerequest.py
+  - src/skylight_sdk/models/validationerror.py
+  - src/skylight_sdk/models/vminstanceslistresponse.py
+  - src/skylight_sdk/models/vmpauseresponse.py
+  - src/skylight_sdk/models/vmrequest.py
+  - src/skylight_sdk/models/vmresumeresponse.py
+  - src/skylight_sdk/models/vmstartresponse.py
+  - src/skylight_sdk/models/vmstatusresponse.py
+  - src/skylight_sdk/models/vmterminateresponse.py
+  - src/skylight_sdk/py.typed
+  - src/skylight_sdk/sdk.py
+  - src/skylight_sdk/sdkconfiguration.py
+  - src/skylight_sdk/types/__init__.py
+  - src/skylight_sdk/types/basemodel.py
+  - src/skylight_sdk/utils/__init__.py
+  - src/skylight_sdk/utils/annotations.py
+  - src/skylight_sdk/utils/enums.py
+  - src/skylight_sdk/utils/eventstreaming.py
+  - src/skylight_sdk/utils/forms.py
+  - src/skylight_sdk/utils/headers.py
+  - src/skylight_sdk/utils/logger.py
+  - src/skylight_sdk/utils/metadata.py
+  - src/skylight_sdk/utils/queryparams.py
+  - src/skylight_sdk/utils/requestbodies.py
+  - src/skylight_sdk/utils/retries.py
+  - src/skylight_sdk/utils/security.py
+  - src/skylight_sdk/utils/serializers.py
+  - src/skylight_sdk/utils/url.py
+  - src/skylight_sdk/utils/values.py
+  - src/skylight_sdk/windows.py
+examples:
+  start:
+    speakeasy-default-start:
+      responses:
+        "200":
+          application/json: {"status": "success", "instance_id": "<string>", "message": "VM ready to use"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  install:
+    speakeasy-default-install:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"packages": ["<value>"]}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "Packages installation initiated", "command_id": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  pause:
+    speakeasy-default-pause:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "VM hibernated successfully"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  resume:
+    speakeasy-default-resume:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "VM resumed successfully"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  state:
+    speakeasy-default-state:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"state": "running", "ip_address": "<string>", "launch_time": "<datetime>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  instances:
+    speakeasy-default-instances:
+      responses:
+        "200":
+          application/json: {"instances": [{}]}
+        "403":
+          application/json: {"detail": "<string>"}
+        "500":
+          application/json: {"detail": "<string>"}
+  terminate:
+    speakeasy-default-terminate:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "VM terminated successfully"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  click:
+    speakeasy-default-click:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1, "interval": 0}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  drag:
+    speakeasy-default-drag:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"path": [{"x": 100, "y": 200}, {"x": 200, "y": 300}, {"x": 300, "y": 400}], "button": "left", "step": 5}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  screenshot:
+    speakeasy-default-screenshot:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: "<value>"
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  move:
+    speakeasy-default-move:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  keypress:
+    speakeasy-default-keypress:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"keys": ["super", "shift", "s"]}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  type:
+    speakeasy-default-type:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"text": "Hello, world!", "interval": 0.05}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  scroll:
+    speakeasy-default-scroll:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": -100, "step": 20}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  get_file:
+    speakeasy-default-get-file:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"key": "<value>"}
+      responses:
+        "200":
+          application/json: {}
+        "403":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  run:
+    speakeasy-default-run:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"query": "Search for something on the VM"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  stop:
+    speakeasy-default-stop:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  status:
+    speakeasy-default-status:
+      parameters:
+        path:
+          agent_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+examplesVersion: 1.0.1
+generatedTests: {}

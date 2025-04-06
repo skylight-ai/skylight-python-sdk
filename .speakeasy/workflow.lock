@@ -1,0 +1,36 @@
+speakeasyVersion: 1.529.1
+sources:
+    Skylight API:
+        sourceNamespace: skylight-api
+        sourceRevisionDigest: sha256:aba47acb018bff0a88183d85abca3597f53b45b9d385e28be5b7b607100d030e
+        sourceBlobDigest: sha256:48cb462641eb4881c30bfad8a01f0afc44f2c995f052a7c974c8a1e9bacecd1f
+        tags:
+            - latest
+            - 1.0.0
+targets:
+    skylight:
+        source: Skylight API
+        sourceNamespace: skylight-api
+        sourceRevisionDigest: sha256:aba47acb018bff0a88183d85abca3597f53b45b9d385e28be5b7b607100d030e
+        sourceBlobDigest: sha256:48cb462641eb4881c30bfad8a01f0afc44f2c995f052a7c974c8a1e9bacecd1f
+        codeSamplesNamespace: skylight-api-python-code-samples
+        codeSamplesRevisionDigest: sha256:ac26b72bfe22ee2e17cea4c52595cb3d2d7a7bd3ac60395cb43a307c91949132
+workflow:
+    workflowVersion: 1.0.0
+    speakeasyVersion: latest
+    sources:
+        Skylight API:
+            inputs:
+                - location: ../openapi.json
+            registry:
+                location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api
+    targets:
+        skylight:
+            target: python
+            source: Skylight API
+            codeSamples:
+                registry:
+                    location: registry.speakeasyapi.dev/picocrowd/windows/skylight-api-python-code-samples
+                labelOverride:
+                    fixedValue: Python (SDK)
+                blocking: false
