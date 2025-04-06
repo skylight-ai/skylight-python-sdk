@@ -22,7 +22,7 @@ Skylight API: Skylight API Documentation
 
         # Skylight API Documentation
         
-        This API allows you to interact with Windows VMs.
+        This API allows you to interact with Windows instances.
         
         ## Authentication
         
@@ -205,8 +205,8 @@ with Skylight(
 ### [agent](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md)
 
 * [run](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#run) - Run Agent
-* [stop](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
-* [status](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
+* [stop](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#stop) - Stop Agent
+* [status](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#status) - Get Agent State
 
 ### [interact](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md)
 
@@ -218,17 +218,17 @@ with Skylight(
 * [type](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#type) - Type Text
 * [scroll](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#scroll) - Scroll
 * [get_file](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#get_file) - Get File
+* [install](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#install) - Install Applications
 
 
 ### [windows](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md)
 
-* [start](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#start) - Start Vm
-* [install](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#install) - Install Chocolatey Packages
-* [pause](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#pause) - Pause Vm
-* [resume](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#resume) - Resume Vm
-* [state](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#state) - Get Vm Status
-* [instances](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#instances) - Get Instances
-* [terminate](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#terminate) - Terminate Vm
+* [start](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#start) - Start Instance
+* [pause](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#pause) - Pause Instance
+* [resume](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#resume) - Resume Instance
+* [terminate](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#terminate) - Terminate Instance
+* [state](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#state) - Get Instance State
+* [instances](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#instances) - Get All Instances
 
 </details>
 <!-- End Available Resources and Operations [operations] -->

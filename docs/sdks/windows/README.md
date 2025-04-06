@@ -5,17 +5,16 @@
 
 ### Available Operations
 
-* [start](#start) - Start Vm
-* [install](#install) - Install Chocolatey Packages
-* [pause](#pause) - Pause Vm
-* [resume](#resume) - Resume Vm
-* [state](#state) - Get Vm Status
-* [instances](#instances) - Get Instances
-* [terminate](#terminate) - Terminate Vm
+* [start](#start) - Start Instance
+* [pause](#pause) - Pause Instance
+* [resume](#resume) - Resume Instance
+* [terminate](#terminate) - Terminate Instance
+* [state](#state) - Get Instance State
+* [instances](#instances) - Get All Instances
 
 ## start
 
-Start a new Windows VM instance.
+Start a new Windows  instance.
 
 - timeout_minutes: Optional timeout in minutes (default: 60)
 
@@ -43,59 +42,12 @@ with Skylight(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.VMRequest](../../models/vmrequest.md)                       | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `request`                                                           | [models.InstanceRequest](../../models/instancerequest.md)           | :heavy_check_mark:                                                  | The request object to use for the request.                          |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
 
-**[models.VMStartResponse](../../models/vmstartresponse.md)**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
-
-## install
-
-Install Chocolatey packages on a Windows VM. Find a list of packages here: https://community.chocolatey.org/packages.
-
-Requires API key authentication.
-
-### Example Usage
-
-```python
-import os
-from skylight_sdk import Skylight
-
-
-with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
-) as skylight:
-
-    res = skylight.windows.install(instance_id="<id>", packages=[
-        "<value>",
-    ])
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `instance_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `packages`                                                          | List[*str*]                                                         | :heavy_check_mark:                                                  | List of Chocolatey package names to install                         |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.PackageInstallResponse](../../models/packageinstallresponse.md)**
+**[models.InstanceStartResponse](../../models/instancestartresponse.md)**
 
 ### Errors
 
@@ -137,7 +89,7 @@ with Skylight(
 
 ### Response
 
-**[models.VMPauseResponse](../../models/vmpauseresponse.md)**
+**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
 
 ### Errors
 
@@ -179,7 +131,49 @@ with Skylight(
 
 ### Response
 
-**[models.VMResumeResponse](../../models/vmresumeresponse.md)**
+**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
+
+### Errors
+
+| Error Type                    | Status Code                   | Content Type                  |
+| ----------------------------- | ----------------------------- | ----------------------------- |
+| models.ForbiddenErrorResponse | 403                           | application/json              |
+| models.HTTPValidationError    | 422                           | application/json              |
+| models.ServerErrorResponse    | 500                           | application/json              |
+| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+
+## terminate
+
+Requires API key authentication.
+
+### Example Usage
+
+```python
+import os
+from skylight_sdk import Skylight
+
+
+with Skylight(
+    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+) as skylight:
+
+    res = skylight.windows.terminate(instance_id="<id>")
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `instance_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
 
 ### Errors
 
@@ -221,7 +215,7 @@ with Skylight(
 
 ### Response
 
-**[models.VMStatusResponse](../../models/vmstatusresponse.md)**
+**[models.InstanceStatusResponse](../../models/instancestatusresponse.md)**
 
 ### Errors
 
@@ -262,54 +256,12 @@ with Skylight(
 
 ### Response
 
-**[models.VMInstancesListResponse](../../models/vminstanceslistresponse.md)**
+**[models.InstancesListResponse](../../models/instanceslistresponse.md)**
 
 ### Errors
 
 | Error Type                    | Status Code                   | Content Type                  |
 | ----------------------------- | ----------------------------- | ----------------------------- |
 | models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
-
-## terminate
-
-Requires API key authentication.
-
-### Example Usage
-
-```python
-import os
-from skylight_sdk import Skylight
-
-
-with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
-) as skylight:
-
-    res = skylight.windows.terminate(instance_id="<id>")
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `instance_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[models.VMTerminateResponse](../../models/vmterminateresponse.md)**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
 | models.ServerErrorResponse    | 500                           | application/json              |
 | models.APIError               | 4XX, 5XX                      | \*/\*                         |

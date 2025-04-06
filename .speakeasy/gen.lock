@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
 management:
-  docChecksum: fba17c9b42b25b6b0ac45763c0bb570b
-  docVersion: 1.0.1
+  docChecksum: e220c63147de4c63b7505d00135113ca
+  docVersion: 1.0.7
   speakeasyVersion: 1.529.1
   generationVersion: 2.566.5
-  releaseVersion: 0.0.3
-  configChecksum: 9acd859045d8090f5ebeb99635e05f8a
+  releaseVersion: 0.0.4
+  configChecksum: 9b751d417862bb83dd8c9ed24514753b
   repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
   published: true
@@ -39,6 +39,7 @@ generatedFiles:
   - .python-version
   - .vscode/settings.json
   - USAGE.md
+  - docs/models/agentstatusresponse.md
   - docs/models/button.md
   - docs/models/clauderequest.md
   - docs/models/clickrequest.md
@@ -47,12 +48,18 @@ generatedFiles:
   - docs/models/dragrequest1.md
   - docs/models/dragrequestbutton.md
   - docs/models/errorresponse.md
+  - docs/models/files.md
   - docs/models/forbiddenerrorresponse.md
   - docs/models/getfilerequest.md
   - docs/models/getfileresponse200getfile.md
   - docs/models/httpvalidationerror.md
   - docs/models/installrequest.md
+  - docs/models/instanceoperationresponse.md
+  - docs/models/instancerequest.md
   - docs/models/instances.md
+  - docs/models/instanceslistresponse.md
+  - docs/models/instancestartresponse.md
+  - docs/models/instancestatusresponse.md
   - docs/models/keypressrequest.md
   - docs/models/keyrequest.md
   - docs/models/loc.md
@@ -70,7 +77,6 @@ generatedFiles:
   - docs/models/security.md
   - docs/models/servererrorresponse.md
   - docs/models/standardresponse.md
-  - docs/models/state.md
   - docs/models/staterequest.md
   - docs/models/statusrequest.md
   - docs/models/stoprequest.md
@@ -79,13 +85,6 @@ generatedFiles:
   - docs/models/typerequest1.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
-  - docs/models/vminstanceslistresponse.md
-  - docs/models/vmpauseresponse.md
-  - docs/models/vmrequest.md
-  - docs/models/vmresumeresponse.md
-  - docs/models/vmstartresponse.md
-  - docs/models/vmstatusresponse.md
-  - docs/models/vmterminateresponse.md
   - docs/sdks/agent/README.md
   - docs/sdks/interact/README.md
   - docs/sdks/skylight/README.md
@@ -106,6 +105,7 @@ generatedFiles:
   - src/skylight_sdk/httpclient.py
   - src/skylight_sdk/interact.py
   - src/skylight_sdk/models/__init__.py
+  - src/skylight_sdk/models/agentstatusresponse.py
   - src/skylight_sdk/models/apierror.py
   - src/skylight_sdk/models/clauderequest.py
   - src/skylight_sdk/models/clickop.py
@@ -117,6 +117,11 @@ generatedFiles:
   - src/skylight_sdk/models/get_fileop.py
   - src/skylight_sdk/models/httpvalidationerror.py
   - src/skylight_sdk/models/installop.py
+  - src/skylight_sdk/models/instanceoperationresponse.py
+  - src/skylight_sdk/models/instancerequest.py
+  - src/skylight_sdk/models/instanceslistresponse.py
+  - src/skylight_sdk/models/instancestartresponse.py
+  - src/skylight_sdk/models/instancestatusresponse.py
   - src/skylight_sdk/models/keypressop.py
   - src/skylight_sdk/models/keyrequest.py
   - src/skylight_sdk/models/mousemoverequest.py
@@ -139,13 +144,6 @@ generatedFiles:
   - src/skylight_sdk/models/typeop.py
   - src/skylight_sdk/models/typerequest.py
   - src/skylight_sdk/models/validationerror.py
-  - src/skylight_sdk/models/vminstanceslistresponse.py
-  - src/skylight_sdk/models/vmpauseresponse.py
-  - src/skylight_sdk/models/vmrequest.py
-  - src/skylight_sdk/models/vmresumeresponse.py
-  - src/skylight_sdk/models/vmstartresponse.py
-  - src/skylight_sdk/models/vmstatusresponse.py
-  - src/skylight_sdk/models/vmterminateresponse.py
   - src/skylight_sdk/py.typed
   - src/skylight_sdk/sdk.py
   - src/skylight_sdk/sdkconfiguration.py
@@ -172,7 +170,7 @@ examples:
     speakeasy-default-start:
       responses:
         "200":
-          application/json: {"status": "success", "instance_id": "<string>", "message": "VM ready to use"}
+          application/json: {"instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "state": "running"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -188,7 +186,7 @@ examples:
         application/json: {"packages": ["<value>"]}
       responses:
         "200":
-          application/json: {"status": "success", "message": "Packages installation initiated", "command_id": "<string>"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456", "command_id": "<string>"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -202,7 +200,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "VM hibernated successfully"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -216,7 +214,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "VM resumed successfully"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -230,7 +228,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"state": "running", "ip_address": "<string>", "launch_time": "<datetime>"}
+          application/json: {"state": "running", "knowledge": "unknown"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -241,7 +239,7 @@ examples:
     speakeasy-default-instances:
       responses:
         "200":
-          application/json: {"instances": [{}]}
+          application/json: {"instances": [{}, {}]}
         "403":
           application/json: {"detail": "<string>"}
         "500":
@@ -253,7 +251,7 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "VM terminated successfully"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
           application/json: {"detail": "<string>"}
         "422":
@@ -421,7 +419,7 @@ examples:
           agent_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "<string>"}
+          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "step_count": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "steps": ["Step 1: Search for information", "Step 2: Download file"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
         "404":
           application/json: {"detail": "<string>"}
         "422":

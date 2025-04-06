@@ -22,7 +22,7 @@ class Skylight(BaseSDK):
 
     # Skylight API Documentation
 
-    This API allows you to interact with Windows VMs.
+    This API allows you to interact with Windows instances.
 
     ## Authentication
 

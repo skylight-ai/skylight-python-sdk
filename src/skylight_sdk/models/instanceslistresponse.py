@@ -14,11 +14,11 @@ class Instances(BaseModel):
     pass
 
 
-class VMInstancesListResponseTypedDict(TypedDict):
+class InstancesListResponseTypedDict(TypedDict):
     instances: List[InstancesTypedDict]
-    r"""List of instances associated with the API key"""
+    r"""List of instance IDs and states associated with the API key"""
 
 
-class VMInstancesListResponse(BaseModel):
+class InstancesListResponse(BaseModel):
     instances: List[Instances]
-    r"""List of instances associated with the API key"""
+    r"""List of instance IDs and states associated with the API key"""

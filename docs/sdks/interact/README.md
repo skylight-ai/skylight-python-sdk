@@ -13,6 +13,7 @@
 * [type](#type) - Type Text
 * [scroll](#scroll) - Scroll
 * [get_file](#get_file) - Get File
+* [install](#install) - Install Applications
 
 ## click
 
@@ -135,7 +136,7 @@ with Skylight(
 
 ## screenshot
 
-Take a screenshot of the VM
+Take a screenshot of the instance
 
 Requires API key authentication.
 
@@ -369,7 +370,7 @@ with Skylight(
 
 ## get_file
 
-Get a secure download link for a file on the VM
+Get a secure download link for a file on the instance
 
 Generates a presigned S3 URL for the client to download the file directly
 
@@ -412,6 +413,53 @@ with Skylight(
 | Error Type                 | Status Code                | Content Type               |
 | -------------------------- | -------------------------- | -------------------------- |
 | models.ErrorResponse       | 403, 404                   | application/json           |
+| models.HTTPValidationError | 422                        | application/json           |
+| models.ErrorResponse       | 500                        | application/json           |
+| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+
+## install
+
+Install Chocolatey packages on a Windows instance. Find a list of packages here: https://community.chocolatey.org/packages.
+
+Requires API key authentication.
+
+### Example Usage
+
+```python
+import os
+from skylight_sdk import Skylight
+
+
+with Skylight(
+    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+) as skylight:
+
+    res = skylight.interact.install(instance_id="<id>", packages=[
+        "<value>",
+    ])
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `instance_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `packages`                                                          | List[*str*]                                                         | :heavy_check_mark:                                                  | List of Chocolatey package names to install                         |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.PackageInstallResponse](../../models/packageinstallresponse.md)**
+
+### Errors
+
+| Error Type                 | Status Code                | Content Type               |
+| -------------------------- | -------------------------- | -------------------------- |
+| models.ErrorResponse       | 403                        | application/json           |
 | models.HTTPValidationError | 422                        | application/json           |
 | models.ErrorResponse       | 500                        | application/json           |
 | models.APIError            | 4XX, 5XX                   | \*/\*                      |

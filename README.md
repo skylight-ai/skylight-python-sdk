@@ -22,7 +22,7 @@ Skylight API: Skylight API Documentation
 
         # Skylight API Documentation
         
-        This API allows you to interact with Windows VMs.
+        This API allows you to interact with Windows instances.
         
         ## Authentication
         
@@ -205,8 +205,8 @@ with Skylight(
 ### [agent](docs/sdks/agent/README.md)
 
 * [run](docs/sdks/agent/README.md#run) - Run Agent
-* [stop](docs/sdks/agent/README.md#stop) - Stop Agent Endpoint
-* [status](docs/sdks/agent/README.md#status) - Get Agent Status Endpoint
+* [stop](docs/sdks/agent/README.md#stop) - Stop Agent
+* [status](docs/sdks/agent/README.md#status) - Get Agent State
 
 ### [interact](docs/sdks/interact/README.md)
 
@@ -218,17 +218,17 @@ with Skylight(
 * [type](docs/sdks/interact/README.md#type) - Type Text
 * [scroll](docs/sdks/interact/README.md#scroll) - Scroll
 * [get_file](docs/sdks/interact/README.md#get_file) - Get File
+* [install](docs/sdks/interact/README.md#install) - Install Applications
 
 
 ### [windows](docs/sdks/windows/README.md)
 
-* [start](docs/sdks/windows/README.md#start) - Start Vm
-* [install](docs/sdks/windows/README.md#install) - Install Chocolatey Packages
-* [pause](docs/sdks/windows/README.md#pause) - Pause Vm
-* [resume](docs/sdks/windows/README.md#resume) - Resume Vm
-* [state](docs/sdks/windows/README.md#state) - Get Vm Status
-* [instances](docs/sdks/windows/README.md#instances) - Get Instances
-* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Vm
+* [start](docs/sdks/windows/README.md#start) - Start Instance
+* [pause](docs/sdks/windows/README.md#pause) - Pause Instance
+* [resume](docs/sdks/windows/README.md#resume) - Resume Instance
+* [terminate](docs/sdks/windows/README.md#terminate) - Terminate Instance
+* [state](docs/sdks/windows/README.md#state) - Get Instance State
+* [instances](docs/sdks/windows/README.md#instances) - Get All Instances
 
 </details>
 <!-- End Available Resources and Operations [operations] -->
