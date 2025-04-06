@@ -8,6 +8,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *skyl
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
     </a>
 </div>
+
  
 <!-- Start Summary [summary] -->
 ## Summary
