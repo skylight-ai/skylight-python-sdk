@@ -96,14 +96,6 @@ with Skylight(
             "x": 100,
             "y": 200,
         },
-        {
-            "x": 200,
-            "y": 300,
-        },
-        {
-            "x": 300,
-            "y": 400,
-        },
     ], step=5)
 
     # Handle response

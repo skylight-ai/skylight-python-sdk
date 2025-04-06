@@ -32,7 +32,7 @@ actions:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.drag(instance_id=\"<id>\", path=[\n        {\n            \"x\": 100,\n            \"y\": 200,\n        },\n        {\n            \"x\": 200,\n            \"y\": 300,\n        },\n        {\n            \"x\": 300,\n            \"y\": 400,\n        },\n    ], step=5)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.drag(instance_id=\"<id>\", path=[\n        {\n            \"x\": 100,\n            \"y\": 200,\n        },\n    ], step=5)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/file/{instance_id}"]["post"]
     update:
       "x-codeSamples":

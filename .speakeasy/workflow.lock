@@ -2,20 +2,20 @@ speakeasyVersion: 1.529.1
 sources:
     Skylight API:
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:d782d4757f128f096b6a002168238a2d12ab182e737a0cd531eeaed0042be3cc
-        sourceBlobDigest: sha256:84ea6d4bdb808522f0bd26c68f62eb1ef6e7668ae0a980ad0abadd4579a412ff
+        sourceRevisionDigest: sha256:ab75999231528d59ec1e4d8186d00962dc9894a22677de975e674f766dfe51ee
+        sourceBlobDigest: sha256:ef1d65868b1567f1e41cb3600afb33f93589c9465dbc9305ae28ca591d7cd60e
         tags:
             - latest
-            - speakeasy-sdk-regen-1743970436
-            - 1.0.7
+            - speakeasy-sdk-regen-1743975345
+            - 1.0.9
 targets:
     skylight:
         source: Skylight API
         sourceNamespace: skylight-api
-        sourceRevisionDigest: sha256:d782d4757f128f096b6a002168238a2d12ab182e737a0cd531eeaed0042be3cc
-        sourceBlobDigest: sha256:84ea6d4bdb808522f0bd26c68f62eb1ef6e7668ae0a980ad0abadd4579a412ff
+        sourceRevisionDigest: sha256:ab75999231528d59ec1e4d8186d00962dc9894a22677de975e674f766dfe51ee
+        sourceBlobDigest: sha256:ef1d65868b1567f1e41cb3600afb33f93589c9465dbc9305ae28ca591d7cd60e
         codeSamplesNamespace: skylight-api-python-code-samples
-        codeSamplesRevisionDigest: sha256:9cd03b16c934dbfb9ce22e06544416aa843f2b1960d759e8c1d0b9ed368c1255
+        codeSamplesRevisionDigest: sha256:0e9b009789e90f0b252d1c305328f15b5a567181a0dacb84db92f3aee2a77c88
 workflow:
     workflowVersion: 1.0.0
     speakeasyVersion: latest
