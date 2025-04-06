@@ -9,11 +9,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *skyl
     </a>
 </div>
 
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/picocrowd/windows). Delete this section before > publishing to a package manager.
-
+ 
 <!-- Start Summary [summary] -->
 ## Summary
 
@@ -36,21 +32,35 @@ Skylight API: Skylight API Documentation
 <!-- Start Table of Contents [toc] -->
 ## Table of Contents
 <!-- $toc-max-depth=2 -->
-* [skylight-sdk](#skylight-sdk)
-  * [SDK Installation](#sdk-installation)
-  * [IDE Support](#ide-support)
-  * [SDK Example Usage](#sdk-example-usage)
-  * [Authentication](#authentication)
-  * [Available Resources and Operations](#available-resources-and-operations)
-  * [Retries](#retries)
-  * [Error Handling](#error-handling)
-  * [Server Selection](#server-selection)
-  * [Custom HTTP Client](#custom-http-client)
-  * [Resource Management](#resource-management)
-  * [Debugging](#debugging)
-* [Development](#development)
-  * [Maturity](#maturity)
-  * [Contributions](#contributions)
+- [skylight-sdk](#skylight-sdk)
+  - [Summary](#summary)
+  - [Table of Contents](#table-of-contents)
+  - [SDK Installation](#sdk-installation)
+    - [PIP](#pip)
+    - [Poetry](#poetry)
+    - [Shell and script usage with `uv`](#shell-and-script-usage-with-uv)
+  - [IDE Support](#ide-support)
+    - [PyCharm](#pycharm)
+  - [SDK Example Usage](#sdk-example-usage)
+    - [Example](#example)
+  - [Authentication](#authentication)
+    - [Per-Client Security Schemes](#per-client-security-schemes)
+  - [Available Resources and Operations](#available-resources-and-operations)
+    - [agent](#agent)
+    - [interact](#interact)
+    - [windows](#windows)
+  - [Retries](#retries)
+  - [Error Handling](#error-handling)
+    - [Example](#example-1)
+  - [Server Selection](#server-selection)
+    - [Override Server URL Per-Client](#override-server-url-per-client)
+  - [Custom HTTP Client](#custom-http-client)
+  - [Resource Management](#resource-management)
+  - [Debugging](#debugging)
+- [Development](#development)
+  - [Maturity](#maturity)
+  - [Contributions](#contributions)
+    - [SDK Created by Speakeasy](#sdk-created-by-speakeasy)
 
 <!-- End Table of Contents [toc] -->
 

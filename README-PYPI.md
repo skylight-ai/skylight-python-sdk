@@ -8,12 +8,7 @@ Developer-friendly & type-safe Python SDK specifically catered to leverage *skyl
         <img src="https://img.shields.io/badge/License-MIT-blue.svg" style="width: 100px; height: 28px;" />
     </a>
 </div>
-
-
-<br /><br />
-> [!IMPORTANT]
-> This SDK is not yet ready for production use. To complete setup please follow the steps outlined in your [workspace](https://app.speakeasy.com/org/picocrowd/windows). Delete this section before > publishing to a package manager.
-
+ 
 <!-- Start Summary [summary] -->
 ## Summary
 
