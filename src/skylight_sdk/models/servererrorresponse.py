@@ -11,6 +11,8 @@ class ServerErrorResponseData(BaseModel):
 
 
 class ServerErrorResponse(Exception):
+    r"""Returned when an unexpected server-side error occurs"""
+
     data: ServerErrorResponseData
 
     def __init__(self, data: ServerErrorResponseData):

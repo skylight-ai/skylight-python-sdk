@@ -21,11 +21,3 @@ class GetFileRequest(BaseModel):
         Dict[str, str],
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]
-
-
-class GetFileResponse200GetFileTypedDict(TypedDict):
-    r"""Presigned URL to download the file"""
-
-
-class GetFileResponse200GetFile(BaseModel):
-    r"""Presigned URL to download the file"""

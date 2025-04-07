@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
 management:
-  docChecksum: 8c74bb130cbcd0180745c3ced9841ea2
-  docVersion: 1.0.9
-  speakeasyVersion: 1.529.1
-  generationVersion: 2.566.5
-  releaseVersion: 0.0.5
-  configChecksum: 2eb0d72537eb44c40d1cd64b1272c5de
+  docChecksum: 9701c93f7184f83473dab4a995d79974
+  docVersion: 1.0.14
+  speakeasyVersion: 1.531.0
+  generationVersion: 2.568.2
+  releaseVersion: 0.0.6
+  configChecksum: 0a0285b3685a56d65f2ce04c1c67bdfd
   repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
   published: true
@@ -39,6 +39,7 @@ generatedFiles:
   - .python-version
   - .vscode/settings.json
   - USAGE.md
+  - docs/models/activeoperationresponse.md
   - docs/models/agentstatusresponse.md
   - docs/models/button.md
   - docs/models/clauderequest.md
@@ -51,10 +52,9 @@ generatedFiles:
   - docs/models/files.md
   - docs/models/forbiddenerrorresponse.md
   - docs/models/getfilerequest.md
-  - docs/models/getfileresponse200getfile.md
   - docs/models/httpvalidationerror.md
+  - docs/models/inactiveoperationresponse.md
   - docs/models/installrequest.md
-  - docs/models/instanceoperationresponse.md
   - docs/models/instancerequest.md
   - docs/models/instanceslistresponse.md
   - docs/models/instancestartresponse.md
@@ -71,6 +71,7 @@ generatedFiles:
   - docs/models/resumerequest.md
   - docs/models/runrequest.md
   - docs/models/screenshotrequest.md
+  - docs/models/screenshotresponse.md
   - docs/models/scrollrequest.md
   - docs/models/scrollrequest1.md
   - docs/models/security.md
@@ -104,6 +105,7 @@ generatedFiles:
   - src/skylight_sdk/httpclient.py
   - src/skylight_sdk/interact.py
   - src/skylight_sdk/models/__init__.py
+  - src/skylight_sdk/models/activeoperationresponse.py
   - src/skylight_sdk/models/agentstatusresponse.py
   - src/skylight_sdk/models/apierror.py
   - src/skylight_sdk/models/clauderequest.py
@@ -115,8 +117,8 @@ generatedFiles:
   - src/skylight_sdk/models/forbiddenerrorresponse.py
   - src/skylight_sdk/models/get_fileop.py
   - src/skylight_sdk/models/httpvalidationerror.py
+  - src/skylight_sdk/models/inactiveoperationresponse.py
   - src/skylight_sdk/models/installop.py
-  - src/skylight_sdk/models/instanceoperationresponse.py
   - src/skylight_sdk/models/instancerequest.py
   - src/skylight_sdk/models/instanceslistresponse.py
   - src/skylight_sdk/models/instancestartresponse.py
@@ -131,6 +133,7 @@ generatedFiles:
   - src/skylight_sdk/models/resumeop.py
   - src/skylight_sdk/models/runop.py
   - src/skylight_sdk/models/screenshotop.py
+  - src/skylight_sdk/models/screenshotresponse.py
   - src/skylight_sdk/models/scrollop.py
   - src/skylight_sdk/models/scrollrequest.py
   - src/skylight_sdk/models/security.py
@@ -171,11 +174,11 @@ examples:
         "200":
           application/json: {"instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "state": "running"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   install:
     speakeasy-default-install:
       parameters:
@@ -185,12 +188,14 @@ examples:
         application/json: {"packages": ["<value>"]}
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456", "command_id": "<string>"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "command_id": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   pause:
     speakeasy-default-pause:
@@ -199,13 +204,13 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   resume:
     speakeasy-default-resume:
       parameters:
@@ -215,11 +220,11 @@ examples:
         "200":
           application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   state:
     speakeasy-default-state:
       parameters:
@@ -227,22 +232,22 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"instance_id": "i-123456", "state": "running", "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}
+          application/json: {"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   instances:
     speakeasy-default-instances:
       responses:
         "200":
-          application/json: {"instances": [{"instance_id": "i-123456", "state": "running", "knowledge": "The user previously asked to perform ....", "livestream_url": "https://launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}]}
+          application/json: {"instances": [{"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "The user previously asked to perform ....", "livestream_url": "https://launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}]}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   terminate:
     speakeasy-default-terminate:
       parameters:
@@ -250,13 +255,13 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
+          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "An internal server error occurred while processing your request"}
   click:
     speakeasy-default-click:
       parameters:
@@ -268,10 +273,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   drag:
     speakeasy-default-drag:
@@ -284,10 +291,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   screenshot:
     speakeasy-default-screenshot:
@@ -296,12 +305,14 @@ examples:
           instance_id: "<id>"
       responses:
         "200":
-          application/json: "<value>"
+          application/json: {"image": "base64_encoded_image_data"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   move:
     speakeasy-default-move:
@@ -314,10 +325,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   keypress:
     speakeasy-default-keypress:
@@ -330,10 +343,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "400":
           application/json: {"detail": "<string>"}
   type:
     speakeasy-default-type:
@@ -346,10 +361,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   scroll:
     speakeasy-default-scroll:
@@ -362,10 +379,12 @@ examples:
         "200":
           application/json: {"status": "success", "message": "<string>"}
         "403":
-          application/json: {"detail": "<string>"}
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
+          application/json: {"detail": "An internal server error occurred while processing your request"}
+        "404":
           application/json: {"detail": "<string>"}
   get_file:
     speakeasy-default-get-file:
@@ -383,6 +402,15 @@ examples:
           application/json: {}
         "500":
           application/json: {"detail": "<string>"}
+    "":
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"key": "<value>"}
+      responses:
+        "200":
+          application/json: {"download_url": "https://s3.amazonaws.com/bucket/file?token=...", "expires_in": 3600}
   run:
     speakeasy-default-run:
       parameters:
@@ -418,7 +446,7 @@ examples:
           agent_id: "<id>"
       responses:
         "200":
-          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "step_count": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "steps": ["Step 1: Search for information", "Step 2: Download file"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
+          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "messages": ["<value>"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
         "404":
           application/json: {"detail": "<string>"}
         "422":

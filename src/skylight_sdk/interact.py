@@ -112,7 +112,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -124,9 +129,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -250,7 +255,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -262,9 +272,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -378,7 +388,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -390,9 +405,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -506,7 +521,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -518,9 +538,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -549,7 +569,7 @@ class Interact(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> models.ScreenshotResponse:
         r"""Take Screenshot
 
         Take a screenshot of the instance
@@ -616,8 +636,13 @@ class Interact(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+            return utils.unmarshal_json(http_res.text, models.ScreenshotResponse)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -629,9 +654,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -660,7 +685,7 @@ class Interact(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> Any:
+    ) -> models.ScreenshotResponse:
         r"""Take Screenshot
 
         Take a screenshot of the instance
@@ -727,8 +752,13 @@ class Interact(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, Any)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+            return utils.unmarshal_json(http_res.text, models.ScreenshotResponse)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -740,9 +770,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -854,7 +884,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -866,9 +901,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -980,7 +1015,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -992,9 +1032,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -1092,14 +1132,19 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["400", "403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, ["400", "404"], "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1111,9 +1156,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -1211,14 +1256,19 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["400", "403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, ["400", "404"], "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1230,9 +1280,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -1340,7 +1390,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1352,9 +1407,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -1462,7 +1517,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1474,9 +1534,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -1593,7 +1653,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1605,9 +1670,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -1724,7 +1789,12 @@ class Interact(BaseSDK):
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.StandardResponse)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1736,9 +1806,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -1768,7 +1838,7 @@ class Interact(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.GetFileResponse200GetFile:
+    ) -> Any:
         r"""Get File
 
         Get a secure download link for a file on the instance
@@ -1836,14 +1906,19 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["400", "403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.GetFileResponse200GetFile)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, ["400", "404"], "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1855,9 +1930,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -1887,7 +1962,7 @@ class Interact(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.GetFileResponse200GetFile:
+    ) -> Any:
         r"""Get File
 
         Get a secure download link for a file on the instance
@@ -1955,14 +2030,19 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
+            error_status_codes=["400", "403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.GetFileResponse200GetFile)
-        if utils.match_response(http_res, ["403", "404"], "application/json"):
+            return utils.unmarshal_json(http_res.text, Any)
+        if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, ["400", "404"], "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -1974,9 +2054,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(
@@ -2078,7 +2158,7 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "422", "4XX", "500", "5XX"],
+            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2086,6 +2166,11 @@ class Interact(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.PackageInstallResponse)
         if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -2097,9 +2182,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = utils.stream_to_text(http_res)
             raise models.APIError(
@@ -2201,7 +2286,7 @@ class Interact(BaseSDK):
                 ),
             ),
             request=req,
-            error_status_codes=["403", "422", "4XX", "500", "5XX"],
+            error_status_codes=["403", "404", "422", "4XX", "500", "5XX"],
             retry_config=retry_config,
         )
 
@@ -2209,6 +2294,11 @@ class Interact(BaseSDK):
         if utils.match_response(http_res, "200", "application/json"):
             return utils.unmarshal_json(http_res.text, models.PackageInstallResponse)
         if utils.match_response(http_res, "403", "application/json"):
+            response_data = utils.unmarshal_json(
+                http_res.text, models.ForbiddenErrorResponseData
+            )
+            raise models.ForbiddenErrorResponse(data=response_data)
+        if utils.match_response(http_res, "404", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ErrorResponseData
             )
@@ -2220,9 +2310,9 @@ class Interact(BaseSDK):
             raise models.HTTPValidationError(data=response_data)
         if utils.match_response(http_res, "500", "application/json"):
             response_data = utils.unmarshal_json(
-                http_res.text, models.ErrorResponseData
+                http_res.text, models.ServerErrorResponseData
             )
-            raise models.ErrorResponse(data=response_data)
+            raise models.ServerErrorResponse(data=response_data)
         if utils.match_response(http_res, "4XX", "*"):
             http_res_text = await utils.stream_to_text_async(http_res)
             raise models.APIError(

@@ -16,6 +16,10 @@ class InstanceStatusResponseTypedDict(TypedDict):
     instance_id: str
     state: str
     r"""Current state of the instance"""
+    timeout: int
+    r"""Timeout in minutes before instance auto-termination"""
+    used_minutes: int
+    r"""Minutes used by the instance so far"""
     knowledge: str
     r"""Current knowledge of the instance"""
     livestream_url: str
@@ -29,6 +33,12 @@ class InstanceStatusResponse(BaseModel):
 
     state: str
     r"""Current state of the instance"""
+
+    timeout: int
+    r"""Timeout in minutes before instance auto-termination"""
+
+    used_minutes: int
+    r"""Minutes used by the instance so far"""
 
     knowledge: str
     r"""Current knowledge of the instance"""
