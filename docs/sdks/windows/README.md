@@ -89,7 +89,7 @@ with Skylight(
 
 ### Response
 
-**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
+**[models.InactiveOperationResponse](../../models/inactiveoperationresponse.md)**
 
 ### Errors
 
@@ -131,7 +131,7 @@ with Skylight(
 
 ### Response
 
-**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
+**[models.ActiveOperationResponse](../../models/activeoperationresponse.md)**
 
 ### Errors
 
@@ -173,7 +173,7 @@ with Skylight(
 
 ### Response
 
-**[models.InstanceOperationResponse](../../models/instanceoperationresponse.md)**
+**[models.InactiveOperationResponse](../../models/inactiveoperationresponse.md)**
 
 ### Errors
 

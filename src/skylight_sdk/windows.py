@@ -253,7 +253,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.InactiveOperationResponse:
         r"""Pause Instance
 
         Requires API key authentication.
@@ -318,7 +318,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.InactiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData
@@ -362,7 +362,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.InactiveOperationResponse:
         r"""Pause Instance
 
         Requires API key authentication.
@@ -427,7 +427,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.InactiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData
@@ -471,7 +471,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.ActiveOperationResponse:
         r"""Resume Instance
 
         Requires API key authentication.
@@ -536,7 +536,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.ActiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData
@@ -580,7 +580,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.ActiveOperationResponse:
         r"""Resume Instance
 
         Requires API key authentication.
@@ -645,7 +645,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.ActiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData
@@ -689,7 +689,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.InactiveOperationResponse:
         r"""Terminate Instance
 
         Requires API key authentication.
@@ -754,7 +754,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.InactiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData
@@ -798,7 +798,7 @@ class Windows(BaseSDK):
         server_url: Optional[str] = None,
         timeout_ms: Optional[int] = None,
         http_headers: Optional[Mapping[str, str]] = None,
-    ) -> models.InstanceOperationResponse:
+    ) -> models.InactiveOperationResponse:
         r"""Terminate Instance
 
         Requires API key authentication.
@@ -863,7 +863,7 @@ class Windows(BaseSDK):
 
         response_data: Any = None
         if utils.match_response(http_res, "200", "application/json"):
-            return utils.unmarshal_json(http_res.text, models.InstanceOperationResponse)
+            return utils.unmarshal_json(http_res.text, models.InactiveOperationResponse)
         if utils.match_response(http_res, "403", "application/json"):
             response_data = utils.unmarshal_json(
                 http_res.text, models.ForbiddenErrorResponseData

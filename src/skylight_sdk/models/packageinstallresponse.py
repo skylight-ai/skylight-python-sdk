@@ -19,8 +19,6 @@ class PackageInstallResponseTypedDict(TypedDict):
     r"""Human-readable status message"""
     state: str
     r"""State of the instance (running, pending, hibernated, terminated)"""
-    livestream_url: str
-    r"""URL to livestream the instance"""
     command_id: NotRequired[Nullable[str]]
     r"""Command ID for tracking installation progress"""
 
@@ -34,9 +32,6 @@ class PackageInstallResponse(BaseModel):
 
     state: str
     r"""State of the instance (running, pending, hibernated, terminated)"""
-
-    livestream_url: str
-    r"""URL to livestream the instance"""
 
     command_id: OptionalNullable[str] = UNSET
     r"""Command ID for tracking installation progress"""

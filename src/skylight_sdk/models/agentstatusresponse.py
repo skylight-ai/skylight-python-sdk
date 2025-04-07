@@ -28,11 +28,9 @@ class AgentStatusResponseTypedDict(TypedDict):
     r"""Whether the agent is currently running"""
     total_steps: int
     r"""Total number of steps executed"""
-    step_count: int
-    r"""Number of steps in memory"""
     files: List[FilesTypedDict]
     r"""List of files downloaded by the agent"""
-    steps: List[str]
+    messages: List[str]
     r"""List of steps executed by the agent"""
     created_at: str
     r"""Timestamp when the agent was created"""
@@ -54,13 +52,10 @@ class AgentStatusResponse(BaseModel):
     total_steps: int
     r"""Total number of steps executed"""
 
-    step_count: int
-    r"""Number of steps in memory"""
-
     files: List[Files]
     r"""List of files downloaded by the agent"""
 
-    steps: List[str]
+    messages: List[str]
     r"""List of steps executed by the agent"""
 
     created_at: str

@@ -12,6 +12,8 @@ class ForbiddenErrorResponseData(BaseModel):
 
 
 class ForbiddenErrorResponse(Exception):
+    r"""Returned when the request cannot be processed due to authentication or authorization issues"""
+
     data: ForbiddenErrorResponseData
 
     def __init__(self, data: ForbiddenErrorResponseData):

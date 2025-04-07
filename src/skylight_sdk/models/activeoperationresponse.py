@@ -5,7 +5,7 @@ from skylight_sdk.types import BaseModel
 from typing_extensions import TypedDict
 
 
-class InstanceOperationResponseTypedDict(TypedDict):
+class ActiveOperationResponseTypedDict(TypedDict):
     status: str
     r"""Status of the operation"""
     message: str
@@ -16,7 +16,7 @@ class InstanceOperationResponseTypedDict(TypedDict):
     r"""URL to livestream the instance"""
 
 
-class InstanceOperationResponse(BaseModel):
+class ActiveOperationResponse(BaseModel):
     status: str
     r"""Status of the operation"""
 
