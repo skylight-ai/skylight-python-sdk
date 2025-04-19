@@ -13,11 +13,19 @@ from typing import List
 from typing_extensions import NotRequired, TypedDict
 
 
-class FilesTypedDict(TypedDict):
+class AgentStatusResponseFilesTypedDict(TypedDict):
     pass
 
 
-class Files(BaseModel):
+class AgentStatusResponseFiles(BaseModel):
+    pass
+
+
+class HumanInputRequestTypedDict(TypedDict):
+    pass
+
+
+class HumanInputRequest(BaseModel):
     pass
 
 
@@ -28,7 +36,7 @@ class AgentStatusResponseTypedDict(TypedDict):
     r"""Whether the agent is currently running"""
     total_steps: int
     r"""Total number of steps executed"""
-    files: List[FilesTypedDict]
+    files: List[AgentStatusResponseFilesTypedDict]
     r"""List of files downloaded by the agent"""
     messages: List[str]
     r"""List of steps executed by the agent"""
@@ -40,6 +48,8 @@ class AgentStatusResponseTypedDict(TypedDict):
     r"""Unique identifier for the agent"""
     final_summary: NotRequired[Nullable[str]]
     r"""Final summary of agent execution"""
+    human_input_request: NotRequired[Nullable[HumanInputRequestTypedDict]]
+    r"""Information about the human input being requested, if agent is waiting"""
 
 
 class AgentStatusResponse(BaseModel):
@@ -52,7 +62,7 @@ class AgentStatusResponse(BaseModel):
     total_steps: int
     r"""Total number of steps executed"""
 
-    files: List[Files]
+    files: List[AgentStatusResponseFiles]
     r"""List of files downloaded by the agent"""
 
     messages: List[str]
@@ -70,10 +80,13 @@ class AgentStatusResponse(BaseModel):
     final_summary: OptionalNullable[str] = UNSET
     r"""Final summary of agent execution"""
 
+    human_input_request: OptionalNullable[HumanInputRequest] = UNSET
+    r"""Information about the human input being requested, if agent is waiting"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["final_summary"]
-        nullable_fields = ["final_summary"]
+        optional_fields = ["final_summary", "human_input_request"]
+        nullable_fields = ["final_summary", "human_input_request"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -25,7 +25,6 @@ class ClickRequestTypedDict(TypedDict):
     y: NotRequired[Nullable[int]]
     button: NotRequired[Button]
     clicks: NotRequired[int]
-    interval: NotRequired[Nullable[float]]
 
 
 class ClickRequest(BaseModel):
@@ -37,12 +36,10 @@ class ClickRequest(BaseModel):
 
     clicks: Optional[int] = 1
 
-    interval: OptionalNullable[float] = UNSET
-
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["x", "y", "button", "clicks", "interval"]
-        nullable_fields = ["x", "y", "interval"]
+        optional_fields = ["x", "y", "button", "clicks"]
+        nullable_fields = ["x", "y"]
         null_default_fields = []
 
         serialized = handler(self)

@@ -202,7 +202,13 @@ with Skylight(
 
 * [run](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#run) - Run Agent
 * [stop](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#stop) - Stop Agent
+* [answer](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#answer) - Respond To Agent
 * [status](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#status) - Get Agent State
+
+### [files](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md)
+
+* [upload](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md#upload) - Upload To Vm
+* [download](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md#download) - Get File
 
 ### [interact](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md)
 
@@ -213,7 +219,6 @@ with Skylight(
 * [keypress](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#keypress) - Keypress
 * [type](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#type) - Type Text
 * [scroll](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#scroll) - Scroll
-* [get_file](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#get_file) - Get File
 * [install](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#install) - Install Applications
 
 
@@ -289,12 +294,12 @@ By default, an API error will raise a models.APIError exception, which has the f
 
 When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `start_async` method may raise the following exceptions:
 
-| Error Type                    | Status Code | Content Type     |
-| ----------------------------- | ----------- | ---------------- |
-| models.ForbiddenErrorResponse | 403         | application/json |
-| models.HTTPValidationError    | 422         | application/json |
-| models.ServerErrorResponse    | 500         | application/json |
-| models.APIError               | 4XX, 5XX    | \*/\*            |
+| Error Type                        | Status Code | Content Type     |
+| --------------------------------- | ----------- | ---------------- |
+| models.ForbiddenErrorResponse     | 403         | application/json |
+| models.HTTPValidationError        | 422         | application/json |
+| models.WindowsModelsErrorResponse | 500         | application/json |
+| models.APIError                   | 4XX, 5XX    | \*/\*            |
 
 ### Example
 
@@ -320,8 +325,8 @@ with Skylight(
     except models.HTTPValidationError as e:
         # handle e.data: models.HTTPValidationErrorData
         raise(e)
-    except models.ServerErrorResponse as e:
-        # handle e.data: models.ServerErrorResponseData
+    except models.WindowsModelsErrorResponse as e:
+        # handle e.data: models.WindowsModelsErrorResponseData
         raise(e)
     except models.APIError as e:
         # handle exception

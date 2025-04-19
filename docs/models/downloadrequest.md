@@ -1,4 +1,4 @@
-# GetFileRequest
+# DownloadRequest
 
 
 ## Fields

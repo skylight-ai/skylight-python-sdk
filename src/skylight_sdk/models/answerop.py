@@ -3,21 +3,28 @@
 from __future__ import annotations
 from skylight_sdk.types import BaseModel
 from skylight_sdk.utils import FieldMetadata, PathParamMetadata, RequestMetadata
-from typing import Dict
 from typing_extensions import Annotated, TypedDict
 
 
-class GetFileRequestTypedDict(TypedDict):
-    instance_id: str
-    request_body: Dict[str, str]
+class AnswerResponseTypedDict(TypedDict):
+    pass
 
 
-class GetFileRequest(BaseModel):
-    instance_id: Annotated[
+class AnswerResponse(BaseModel):
+    pass
+
+
+class AnswerRequestTypedDict(TypedDict):
+    agent_id: str
+    request_body: AnswerResponseTypedDict
+
+
+class AnswerRequest(BaseModel):
+    agent_id: Annotated[
         str, FieldMetadata(path=PathParamMetadata(style="simple", explode=False))
     ]
 
     request_body: Annotated[
-        Dict[str, str],
+        AnswerResponse,
         FieldMetadata(request=RequestMetadata(media_type="application/json")),
     ]

@@ -6,9 +6,17 @@ from .activeoperationresponse import (
 )
 from .agentstatusresponse import (
     AgentStatusResponse,
+    AgentStatusResponseFiles,
+    AgentStatusResponseFilesTypedDict,
     AgentStatusResponseTypedDict,
-    Files,
-    FilesTypedDict,
+    HumanInputRequest,
+    HumanInputRequestTypedDict,
+)
+from .answerop import (
+    AnswerRequest,
+    AnswerRequestTypedDict,
+    AnswerResponse,
+    AnswerResponseTypedDict,
 )
 from .apierror import APIError
 from .clauderequest import (
@@ -19,11 +27,12 @@ from .clauderequest import (
 )
 from .clickop import ClickRequest1, ClickRequest1TypedDict
 from .clickrequest import Button, ClickRequest, ClickRequestTypedDict
+from .downloadop import DownloadRequest, DownloadRequestTypedDict
 from .dragop import DragRequest1, DragRequest1TypedDict
 from .dragrequest import DragRequest, DragRequestButton, DragRequestTypedDict
-from .errorresponse import ErrorResponse, ErrorResponseData
+from .filedownloadresponse import FileDownloadResponse, FileDownloadResponseTypedDict
+from .fileuploadresponse import FileUploadResponse, FileUploadResponseTypedDict
 from .forbiddenerrorresponse import ForbiddenErrorResponse, ForbiddenErrorResponseData
-from .get_fileop import GetFileRequest, GetFileRequestTypedDict
 from .httpvalidationerror import HTTPValidationError, HTTPValidationErrorData
 from .inactiveoperationresponse import (
     InactiveOperationResponse,
@@ -34,8 +43,14 @@ from .instancerequest import InstanceRequest, InstanceRequestTypedDict
 from .instanceslistresponse import InstancesListResponse, InstancesListResponseTypedDict
 from .instancestartresponse import InstanceStartResponse, InstanceStartResponseTypedDict
 from .instancestatusresponse import (
+    FilesModel,
+    FilesModelTypedDict,
     InstanceStatusResponse,
     InstanceStatusResponseTypedDict,
+)
+from .interact_models_errorresponse import (
+    InteractModelsErrorResponse,
+    InteractModelsErrorResponseData,
 )
 from .keypressop import KeypressRequest, KeypressRequestTypedDict
 from .keyrequest import KeyRequest, KeyRequestTypedDict
@@ -49,12 +64,12 @@ from .packageinstallresponse import (
 from .pauseop import PauseRequest, PauseRequestTypedDict
 from .resumeop import ResumeRequest, ResumeRequestTypedDict
 from .runop import RunRequest, RunRequestTypedDict
+from .s3vmuploadrequest import S3VMUploadRequest, S3VMUploadRequestTypedDict
 from .screenshotop import ScreenshotRequest, ScreenshotRequestTypedDict
 from .screenshotresponse import ScreenshotResponse, ScreenshotResponseTypedDict
 from .scrollop import ScrollRequest1, ScrollRequest1TypedDict
 from .scrollrequest import ScrollRequest, ScrollRequestTypedDict
 from .security import Security, SecurityTypedDict
-from .servererrorresponse import ServerErrorResponse, ServerErrorResponseData
 from .standardresponse import StandardResponse, StandardResponseTypedDict
 from .stateop import StateRequest, StateRequestTypedDict
 from .statusop import StatusRequest, StatusRequestTypedDict
@@ -62,11 +77,16 @@ from .stopop import StopRequest, StopRequestTypedDict
 from .terminateop import TerminateRequest, TerminateRequestTypedDict
 from .typeop import TypeRequest1, TypeRequest1TypedDict
 from .typerequest import TypeRequest, TypeRequestTypedDict
+from .uploadop import UploadRequest, UploadRequestTypedDict
 from .validationerror import (
     Loc,
     LocTypedDict,
     ValidationError,
     ValidationErrorTypedDict,
+)
+from .windows_models_errorresponse import (
+    WindowsModelsErrorResponse,
+    WindowsModelsErrorResponseData,
 )
 
 
@@ -75,7 +95,13 @@ __all__ = [
     "ActiveOperationResponse",
     "ActiveOperationResponseTypedDict",
     "AgentStatusResponse",
+    "AgentStatusResponseFiles",
+    "AgentStatusResponseFilesTypedDict",
     "AgentStatusResponseTypedDict",
+    "AnswerRequest",
+    "AnswerRequestTypedDict",
+    "AnswerResponse",
+    "AnswerResponseTypedDict",
     "Button",
     "ClaudeRequest",
     "ClaudeRequestTypedDict",
@@ -83,21 +109,25 @@ __all__ = [
     "ClickRequest1",
     "ClickRequest1TypedDict",
     "ClickRequestTypedDict",
+    "DownloadRequest",
+    "DownloadRequestTypedDict",
     "DragRequest",
     "DragRequest1",
     "DragRequest1TypedDict",
     "DragRequestButton",
     "DragRequestTypedDict",
-    "ErrorResponse",
-    "ErrorResponseData",
-    "Files",
-    "FilesTypedDict",
+    "FileDownloadResponse",
+    "FileDownloadResponseTypedDict",
+    "FileUploadResponse",
+    "FileUploadResponseTypedDict",
+    "FilesModel",
+    "FilesModelTypedDict",
     "ForbiddenErrorResponse",
     "ForbiddenErrorResponseData",
-    "GetFileRequest",
-    "GetFileRequestTypedDict",
     "HTTPValidationError",
     "HTTPValidationErrorData",
+    "HumanInputRequest",
+    "HumanInputRequestTypedDict",
     "InactiveOperationResponse",
     "InactiveOperationResponseTypedDict",
     "InstallRequest",
@@ -110,6 +140,8 @@ __all__ = [
     "InstanceStatusResponseTypedDict",
     "InstancesListResponse",
     "InstancesListResponseTypedDict",
+    "InteractModelsErrorResponse",
+    "InteractModelsErrorResponseData",
     "KeyRequest",
     "KeyRequestTypedDict",
     "KeypressRequest",
@@ -132,6 +164,8 @@ __all__ = [
     "ResumeRequestTypedDict",
     "RunRequest",
     "RunRequestTypedDict",
+    "S3VMUploadRequest",
+    "S3VMUploadRequestTypedDict",
     "ScreenshotRequest",
     "ScreenshotRequestTypedDict",
     "ScreenshotResponse",
@@ -142,8 +176,6 @@ __all__ = [
     "ScrollRequestTypedDict",
     "Security",
     "SecurityTypedDict",
-    "ServerErrorResponse",
-    "ServerErrorResponseData",
     "StandardResponse",
     "StandardResponseTypedDict",
     "StateRequest",
@@ -158,6 +190,10 @@ __all__ = [
     "TypeRequest1",
     "TypeRequest1TypedDict",
     "TypeRequestTypedDict",
+    "UploadRequest",
+    "UploadRequestTypedDict",
     "ValidationError",
     "ValidationErrorTypedDict",
+    "WindowsModelsErrorResponse",
+    "WindowsModelsErrorResponseData",
 ]

@@ -7,6 +7,7 @@
 
 * [run](#run) - Run Agent
 * [stop](#stop) - Stop Agent
+* [answer](#answer) - Respond To Agent
 * [status](#status) - Get Agent State
 
 ## run
@@ -48,11 +49,11 @@ with Skylight(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.ErrorResponse       | 500                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## stop
 
@@ -91,12 +92,57 @@ with Skylight(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.ErrorResponse       | 404                        | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.ErrorResponse       | 500                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.InteractModelsErrorResponse | 404                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
+
+## answer
+
+Send a human response to a waiting agent and resume its execution.
+
+Requires API key authentication.
+
+### Example Usage
+
+```python
+import os
+from skylight_sdk import Skylight
+
+
+with Skylight(
+    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+) as skylight:
+
+    res = skylight.agent.answer(agent_id="<id>", request_body={})
+
+    # Handle response
+    print(res)
+
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `agent_id`                                                          | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
+| `request_body`                                                      | [models.AnswerResponse](../../models/answerresponse.md)             | :heavy_check_mark:                                                  | N/A                                                                 |
+| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
+
+### Response
+
+**[models.StandardResponse](../../models/standardresponse.md)**
+
+### Errors
+
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.InteractModelsErrorResponse | 404                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## status
 
@@ -135,9 +181,9 @@ with Skylight(
 
 ### Errors
 
-| Error Type                 | Status Code                | Content Type               |
-| -------------------------- | -------------------------- | -------------------------- |
-| models.ErrorResponse       | 404                        | application/json           |
-| models.HTTPValidationError | 422                        | application/json           |
-| models.ErrorResponse       | 500                        | application/json           |
-| models.APIError            | 4XX, 5XX                   | \*/\*                      |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.InteractModelsErrorResponse | 404                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
