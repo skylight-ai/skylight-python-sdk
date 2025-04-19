@@ -13,26 +13,11 @@ from typing_extensions import NotRequired, TypedDict
 
 
 class PackageInstallResponseTypedDict(TypedDict):
-    status: str
-    r"""Status of the operation"""
-    message: str
-    r"""Human-readable status message"""
-    state: str
-    r"""State of the instance (running, pending, hibernated, terminated)"""
     command_id: NotRequired[Nullable[str]]
     r"""Command ID for tracking installation progress"""
 
 
 class PackageInstallResponse(BaseModel):
-    status: str
-    r"""Status of the operation"""
-
-    message: str
-    r"""Human-readable status message"""
-
-    state: str
-    r"""State of the instance (running, pending, hibernated, terminated)"""
-
     command_id: OptionalNullable[str] = UNSET
     r"""Command ID for tracking installation progress"""
 

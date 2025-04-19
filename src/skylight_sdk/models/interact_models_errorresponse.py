@@ -5,16 +5,16 @@ from skylight_sdk import utils
 from skylight_sdk.types import BaseModel
 
 
-class ErrorResponseData(BaseModel):
+class InteractModelsErrorResponseData(BaseModel):
     detail: str
     r"""Error message describing what went wrong"""
 
 
-class ErrorResponse(Exception):
-    data: ErrorResponseData
+class InteractModelsErrorResponse(Exception):
+    data: InteractModelsErrorResponseData
 
-    def __init__(self, data: ErrorResponseData):
+    def __init__(self, data: InteractModelsErrorResponseData):
         self.data = data
 
     def __str__(self) -> str:
-        return utils.marshal_json(self.data, ErrorResponseData)
+        return utils.marshal_json(self.data, InteractModelsErrorResponseData)

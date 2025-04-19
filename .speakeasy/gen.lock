@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
 management:
-  docChecksum: 9701c93f7184f83473dab4a995d79974
-  docVersion: 1.0.14
-  speakeasyVersion: 1.531.0
-  generationVersion: 2.568.2
-  releaseVersion: 0.0.6
-  configChecksum: 0a0285b3685a56d65f2ce04c1c67bdfd
+  docChecksum: abe9bb4ae1f8bf8dcec32258aa8cac59
+  docVersion: 1.0.18
+  speakeasyVersion: 1.535.1
+  generationVersion: 2.585.2
+  releaseVersion: 0.1.0
+  configChecksum: 55ff5bc34e6d88cbaf41e6e4940e127e
   repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
   published: true
@@ -14,7 +14,7 @@ features:
   python:
     additionalDependencies: 1.0.0
     constsAndDefaults: 1.0.5
-    core: 5.12.6
+    core: 5.14.0
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
     enumUnions: 0.1.0
@@ -41,24 +41,30 @@ generatedFiles:
   - USAGE.md
   - docs/models/activeoperationresponse.md
   - docs/models/agentstatusresponse.md
+  - docs/models/agentstatusresponsefiles.md
+  - docs/models/answerrequest.md
+  - docs/models/answerresponse.md
   - docs/models/button.md
   - docs/models/clauderequest.md
   - docs/models/clickrequest.md
   - docs/models/clickrequest1.md
+  - docs/models/downloadrequest.md
   - docs/models/dragrequest.md
   - docs/models/dragrequest1.md
   - docs/models/dragrequestbutton.md
-  - docs/models/errorresponse.md
-  - docs/models/files.md
+  - docs/models/filedownloadresponse.md
+  - docs/models/filesmodel.md
+  - docs/models/fileuploadresponse.md
   - docs/models/forbiddenerrorresponse.md
-  - docs/models/getfilerequest.md
   - docs/models/httpvalidationerror.md
+  - docs/models/humaninputrequest.md
   - docs/models/inactiveoperationresponse.md
   - docs/models/installrequest.md
   - docs/models/instancerequest.md
   - docs/models/instanceslistresponse.md
   - docs/models/instancestartresponse.md
   - docs/models/instancestatusresponse.md
+  - docs/models/interactmodelserrorresponse.md
   - docs/models/keypressrequest.md
   - docs/models/keyrequest.md
   - docs/models/loc.md
@@ -70,12 +76,12 @@ generatedFiles:
   - docs/models/pauserequest.md
   - docs/models/resumerequest.md
   - docs/models/runrequest.md
+  - docs/models/s3vmuploadrequest.md
   - docs/models/screenshotrequest.md
   - docs/models/screenshotresponse.md
   - docs/models/scrollrequest.md
   - docs/models/scrollrequest1.md
   - docs/models/security.md
-  - docs/models/servererrorresponse.md
   - docs/models/standardresponse.md
   - docs/models/staterequest.md
   - docs/models/statusrequest.md
@@ -83,9 +89,12 @@ generatedFiles:
   - docs/models/terminaterequest.md
   - docs/models/typerequest.md
   - docs/models/typerequest1.md
+  - docs/models/uploadrequest.md
   - docs/models/utils/retryconfig.md
   - docs/models/validationerror.md
+  - docs/models/windowsmodelserrorresponse.md
   - docs/sdks/agent/README.md
+  - docs/sdks/files/README.md
   - docs/sdks/interact/README.md
   - docs/sdks/skylight/README.md
   - docs/sdks/windows/README.md
@@ -102,20 +111,23 @@ generatedFiles:
   - src/skylight_sdk/_version.py
   - src/skylight_sdk/agent.py
   - src/skylight_sdk/basesdk.py
+  - src/skylight_sdk/files.py
   - src/skylight_sdk/httpclient.py
   - src/skylight_sdk/interact.py
   - src/skylight_sdk/models/__init__.py
   - src/skylight_sdk/models/activeoperationresponse.py
   - src/skylight_sdk/models/agentstatusresponse.py
+  - src/skylight_sdk/models/answerop.py
   - src/skylight_sdk/models/apierror.py
   - src/skylight_sdk/models/clauderequest.py
   - src/skylight_sdk/models/clickop.py
   - src/skylight_sdk/models/clickrequest.py
+  - src/skylight_sdk/models/downloadop.py
   - src/skylight_sdk/models/dragop.py
   - src/skylight_sdk/models/dragrequest.py
-  - src/skylight_sdk/models/errorresponse.py
+  - src/skylight_sdk/models/filedownloadresponse.py
+  - src/skylight_sdk/models/fileuploadresponse.py
   - src/skylight_sdk/models/forbiddenerrorresponse.py
-  - src/skylight_sdk/models/get_fileop.py
   - src/skylight_sdk/models/httpvalidationerror.py
   - src/skylight_sdk/models/inactiveoperationresponse.py
   - src/skylight_sdk/models/installop.py
@@ -123,6 +135,7 @@ generatedFiles:
   - src/skylight_sdk/models/instanceslistresponse.py
   - src/skylight_sdk/models/instancestartresponse.py
   - src/skylight_sdk/models/instancestatusresponse.py
+  - src/skylight_sdk/models/interact_models_errorresponse.py
   - src/skylight_sdk/models/keypressop.py
   - src/skylight_sdk/models/keyrequest.py
   - src/skylight_sdk/models/mousemoverequest.py
@@ -132,12 +145,12 @@ generatedFiles:
   - src/skylight_sdk/models/pauseop.py
   - src/skylight_sdk/models/resumeop.py
   - src/skylight_sdk/models/runop.py
+  - src/skylight_sdk/models/s3vmuploadrequest.py
   - src/skylight_sdk/models/screenshotop.py
   - src/skylight_sdk/models/screenshotresponse.py
   - src/skylight_sdk/models/scrollop.py
   - src/skylight_sdk/models/scrollrequest.py
   - src/skylight_sdk/models/security.py
-  - src/skylight_sdk/models/servererrorresponse.py
   - src/skylight_sdk/models/standardresponse.py
   - src/skylight_sdk/models/stateop.py
   - src/skylight_sdk/models/statusop.py
@@ -145,7 +158,9 @@ generatedFiles:
   - src/skylight_sdk/models/terminateop.py
   - src/skylight_sdk/models/typeop.py
   - src/skylight_sdk/models/typerequest.py
+  - src/skylight_sdk/models/uploadop.py
   - src/skylight_sdk/models/validationerror.py
+  - src/skylight_sdk/models/windows_models_errorresponse.py
   - src/skylight_sdk/py.typed
   - src/skylight_sdk/sdk.py
   - src/skylight_sdk/sdkconfiguration.py
@@ -178,7 +193,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   install:
     speakeasy-default-install:
       parameters:
@@ -188,13 +203,13 @@ examples:
         application/json: {"packages": ["<value>"]}
       responses:
         "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "command_id": "<string>"}
+          application/json: {"command_id": "<string>"}
         "403":
           application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   pause:
@@ -210,7 +225,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   resume:
     speakeasy-default-resume:
       parameters:
@@ -224,7 +239,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   state:
     speakeasy-default-state:
       parameters:
@@ -238,7 +253,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   instances:
     speakeasy-default-instances:
       responses:
@@ -247,7 +262,7 @@ examples:
         "403":
           application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   terminate:
     speakeasy-default-terminate:
       parameters:
@@ -261,14 +276,14 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
   click:
     speakeasy-default-click:
       parameters:
         path:
           instance_id: "<id>"
       requestBody:
-        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1, "interval": 0}
+        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1}
       responses:
         "200":
           application/json: {"status": "success", "message": "<string>"}
@@ -277,7 +292,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   drag:
@@ -295,7 +310,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   screenshot:
@@ -311,7 +326,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   move:
@@ -329,7 +344,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   keypress:
@@ -347,7 +362,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "400":
           application/json: {"detail": "<string>"}
   type:
@@ -365,7 +380,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   scroll:
@@ -383,7 +398,7 @@ examples:
         "422":
           application/json: {}
         "500":
-          application/json: {"detail": "An internal server error occurred while processing your request"}
+          application/json: {"detail": "<string>"}
         "404":
           application/json: {"detail": "<string>"}
   get_file:
@@ -449,6 +464,55 @@ examples:
           application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "messages": ["<value>"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
         "404":
           application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  answer:
+    "":
+      parameters:
+        path:
+          agent_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422": {}
+        "500":
+          application/json: {"detail": "<string>"}
+  upload:
+    speakeasy-default-upload:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"s3_url": "https://needy-mallard.info/", "file_name": "example.file"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "File uploaded successfully", "file_path": "C:\\Users\\Public\\Downloads\\file.pdf"}
+        "400":
+          application/json: {"detail": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  download:
+    speakeasy-default-download:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"key": "<value>"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "File download URL generated successfully", "download_url": "https://s3.amazonaws.com/bucket/file?token=..."}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
         "422":
           application/json: {}
         "500":

@@ -1,4 +1,4 @@
-# ErrorResponse
+# InteractModelsErrorResponse
 
 
 ## Fields

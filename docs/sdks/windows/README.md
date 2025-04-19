@@ -51,12 +51,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.HTTPValidationError        | 422                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## pause
 
@@ -93,12 +93,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.HTTPValidationError        | 422                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## resume
 
@@ -135,12 +135,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.HTTPValidationError        | 422                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## terminate
 
@@ -177,12 +177,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.HTTPValidationError        | 422                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## state
 
@@ -219,12 +219,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.HTTPValidationError        | 422                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |
 
 ## instances
 
@@ -260,8 +260,8 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                        | Status Code                       | Content Type                      |
+| --------------------------------- | --------------------------------- | --------------------------------- |
+| models.ForbiddenErrorResponse     | 403                               | application/json                  |
+| models.WindowsModelsErrorResponse | 500                               | application/json                  |
+| models.APIError                   | 4XX, 5XX                          | \*/\*                             |

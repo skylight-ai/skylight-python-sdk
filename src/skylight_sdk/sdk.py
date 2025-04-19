@@ -9,6 +9,7 @@ import httpx
 from skylight_sdk import models, utils
 from skylight_sdk._hooks import SDKHooks
 from skylight_sdk.agent import Agent
+from skylight_sdk.files import Files
 from skylight_sdk.interact import Interact
 from skylight_sdk.types import OptionalNullable, UNSET
 from skylight_sdk.windows import Windows
@@ -37,6 +38,7 @@ class Skylight(BaseSDK):
     windows: Windows
     interact: Interact
     agent: Agent
+    files: Files
 
     def __init__(
         self,
@@ -137,6 +139,7 @@ class Skylight(BaseSDK):
         self.windows = Windows(self.sdk_configuration)
         self.interact = Interact(self.sdk_configuration)
         self.agent = Agent(self.sdk_configuration)
+        self.files = Files(self.sdk_configuration)
 
     def __enter__(self):
         return self

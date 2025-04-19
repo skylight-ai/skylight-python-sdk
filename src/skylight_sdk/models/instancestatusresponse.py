@@ -12,6 +12,14 @@ from skylight_sdk.types import (
 from typing_extensions import NotRequired, TypedDict
 
 
+class FilesModelTypedDict(TypedDict):
+    pass
+
+
+class FilesModel(BaseModel):
+    pass
+
+
 class InstanceStatusResponseTypedDict(TypedDict):
     instance_id: str
     state: str
@@ -26,6 +34,8 @@ class InstanceStatusResponseTypedDict(TypedDict):
     r"""URL to livestream the instance"""
     assigned_at: NotRequired[Nullable[str]]
     r"""When the instance was assigned"""
+    files: NotRequired[Nullable[FilesModelTypedDict]]
+    r"""Files on the instance organized by type (downloads, uploads)"""
 
 
 class InstanceStatusResponse(BaseModel):
@@ -49,10 +59,13 @@ class InstanceStatusResponse(BaseModel):
     assigned_at: OptionalNullable[str] = UNSET
     r"""When the instance was assigned"""
 
+    files: OptionalNullable[FilesModel] = UNSET
+    r"""Files on the instance organized by type (downloads, uploads)"""
+
     @model_serializer(mode="wrap")
     def serialize_model(self, handler):
-        optional_fields = ["assigned_at"]
-        nullable_fields = ["assigned_at"]
+        optional_fields = ["assigned_at", "files"]
+        nullable_fields = ["assigned_at", "files"]
         null_default_fields = []
 
         serialized = handler(self)

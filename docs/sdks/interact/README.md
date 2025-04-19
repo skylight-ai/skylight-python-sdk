@@ -12,7 +12,6 @@
 * [keypress](#keypress) - Keypress
 * [type](#type) - Type Text
 * [scroll](#scroll) - Scroll
-* [get_file](#get_file) - Get File
 * [install](#install) - Install Applications
 
 ## click
@@ -39,7 +38,7 @@ with Skylight(
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
-    res = skylight.interact.click(instance_id="<id>", x=100, y=200, interval=0)
+    res = skylight.interact.click(instance_id="<id>", x=100, y=200)
 
     # Handle response
     print(res)
@@ -55,7 +54,6 @@ with Skylight(
 | `y`                                                                 | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `button`                                                            | [Optional[models.Button]](../../models/button.md)                   | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `clicks`                                                            | *Optional[int]*                                                     | :heavy_minus_sign:                                                  | N/A                                                                 |
-| `interval`                                                          | *OptionalNullable[float]*                                           | :heavy_minus_sign:                                                  | N/A                                                                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -64,13 +62,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## drag
 
@@ -120,13 +117,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## screenshot
 
@@ -165,13 +161,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## move
 
@@ -212,13 +207,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## keypress
 
@@ -262,13 +256,13 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 400, 404                      | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.InteractModelsErrorResponse | 400                                | application/json                   |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## type
 
@@ -309,13 +303,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## scroll
 
@@ -359,63 +352,12 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
-
-## get_file
-
-Get a secure download link for a file on the instance
-
-Generates a presigned S3 URL for the client to download the file directly
-
-Requires API key authentication.
-
-### Example Usage
-
-```python
-import os
-from skylight_sdk import Skylight
-
-
-with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
-) as skylight:
-
-    res = skylight.interact.get_file(instance_id="<id>", request_body={
-        "key": "<value>",
-    })
-
-    # Handle response
-    print(res)
-
-```
-
-### Parameters
-
-| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `instance_id`                                                       | *str*                                                               | :heavy_check_mark:                                                  | N/A                                                                 |
-| `request_body`                                                      | Dict[str, *str*]                                                    | :heavy_check_mark:                                                  | N/A                                                                 |
-| `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
-
-### Response
-
-**[Any](../../models/.md)**
-
-### Errors
-
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 400, 404                      | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
 
 ## install
 
@@ -457,10 +399,9 @@ with Skylight(
 
 ### Errors
 
-| Error Type                    | Status Code                   | Content Type                  |
-| ----------------------------- | ----------------------------- | ----------------------------- |
-| models.ForbiddenErrorResponse | 403                           | application/json              |
-| models.ErrorResponse          | 404                           | application/json              |
-| models.HTTPValidationError    | 422                           | application/json              |
-| models.ServerErrorResponse    | 500                           | application/json              |
-| models.APIError               | 4XX, 5XX                      | \*/\*                         |
+| Error Type                         | Status Code                        | Content Type                       |
+| ---------------------------------- | ---------------------------------- | ---------------------------------- |
+| models.ForbiddenErrorResponse      | 403                                | application/json                   |
+| models.HTTPValidationError         | 422                                | application/json                   |
+| models.InteractModelsErrorResponse | 500                                | application/json                   |
+| models.APIError                    | 4XX, 5XX                           | \*/\*                              |
