@@ -3,10 +3,10 @@
 import importlib.metadata
 
 __title__: str = "skylight-sdk"
-__version__: str = "0.1.0"
+__version__: str = "0.2.0"
 __openapi_doc_version__: str = "1.0.18"
-__gen_version__: str = "2.585.2"
-__user_agent__: str = "speakeasy-sdk/python 0.1.0 2.585.2 1.0.18 skylight-sdk"
+__gen_version__: str = "2.914.0"
+__user_agent__: str = "speakeasy-sdk/python 0.2.0 2.914.0 1.0.18 skylight-sdk"
 
 try:
     if __package__ is not None:

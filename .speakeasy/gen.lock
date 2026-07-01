@@ -3,34 +3,960 @@ id: e211e46d-611d-4cc7-989e-d8dddf6b04d5
 management:
   docChecksum: abe9bb4ae1f8bf8dcec32258aa8cac59
   docVersion: 1.0.18
-  speakeasyVersion: 1.535.1
-  generationVersion: 2.585.2
-  releaseVersion: 0.1.0
-  configChecksum: 55ff5bc34e6d88cbaf41e6e4940e127e
+  speakeasyVersion: 1.787.0
+  generationVersion: 2.914.0
+  releaseVersion: 0.2.0
+  configChecksum: 9bc338fd3402e9c8a13b510faff0f661
   repoURL: https://github.com/skylight-ai/skylight-python-sdk.git
   installationURL: https://github.com/skylight-ai/skylight-python-sdk.git
   published: true
+persistentEdits:
+  generation_id: 09a960a8-aa3a-46e9-83fe-05b745bc8848
+  pristine_commit_hash: 864ec75247ba71fb84f093078e14b251198aa57a
+  pristine_tree_hash: c265c54d1b36e8ca18baf585f10167f594befaeb
 features:
   python:
-    additionalDependencies: 1.0.0
-    constsAndDefaults: 1.0.5
-    core: 5.14.0
+    additionalDependencies: 1.1.0
+    constsAndDefaults: 1.0.7
+    core: 6.0.33
     defaultEnabledRetries: 0.2.0
     devContainers: 3.0.0
-    enumUnions: 0.1.0
-    envVarSecurityUsage: 0.3.2
+    enumUnions: 0.1.1
+    envVarSecurityUsage: 0.3.3
     flatRequests: 1.0.1
     flattening: 3.1.1
-    globalSecurity: 3.0.3
+    globalSecurity: 3.0.7
     globalSecurityCallbacks: 1.0.0
     globalSecurityFlattening: 1.0.0
-    globalServerURLs: 3.1.0
-    methodArguments: 1.0.2
-    nullables: 1.0.1
-    responseFormat: 1.0.1
-    retries: 3.0.2
-    sdkHooks: 1.0.1
-    unions: 3.0.4
+    globalServerURLs: 3.2.1
+    methodArguments: 1.1.1
+    nullables: 1.0.2
+    responseFormat: 1.1.0
+    retries: 3.0.7
+    sdkHooks: 1.3.0
+    unions: 3.1.7
+trackedFiles:
+  .devcontainer/README.md:
+    id: b170c0f184ac
+    last_write_checksum: sha1:6613b05691b33e91bada4da38271ef3b0be8a62d
+    pristine_git_object: 2e4ad79428f8ead15215043d6808abffa2e354bf
+  .devcontainer/devcontainer.json:
+    id: b34062a34eb1
+    last_write_checksum: sha1:fbbce5654b8990b172a9ffe841d7635cd51c495b
+    pristine_git_object: 7e67af9f5b5aeed56bab8dd84f75d3729df3ada1
+  .devcontainer/setup.sh:
+    id: 5f1dfbfeb8eb
+    last_write_checksum: sha1:b82e9feb932d27880a16555c8523f2f58b8b2b86
+    pristine_git_object: 78c4f5443b2c8afdad9bfb086fb5ba073d8e3c6d
+  .gitattributes:
+    id: 24139dae6567
+    last_write_checksum: sha1:53134de3ada576f37c22276901e1b5b6d85cd2da
+    pristine_git_object: 4d75d59008e4d8609876d263419a9dc56c8d6f3a
+  .vscode/settings.json:
+    id: 89aa447020cd
+    last_write_checksum: sha1:f84632c81029fcdda8c3b0c768d02b836fc80526
+    pristine_git_object: 8d79f0abb72526f1fb34a4c03e5bba612c6ba2ae
+  USAGE.md:
+    id: 3aed33ce6e6f
+    last_write_checksum: sha1:0cc4e49116d19210ba6d36f11df8d9fe583bc636
+    pristine_git_object: 241b55c0f0ced8b262f8e27561a081eace4ba87b
+  docs/models/activeoperationresponse.md:
+    id: b40f9289d759
+    last_write_checksum: sha1:9171650db7bdc5d6547de0d280532beba066f04d
+    pristine_git_object: d6ba006c73512b7ee576e3e55f9337224a233c00
+  docs/models/agentstatusresponse.md:
+    id: e48fe4e77f05
+    last_write_checksum: sha1:f50196da96782d17af03a6d4614f82734a8ee541
+    pristine_git_object: 52f0a104dc15bb9d6c11c65517ba215f818ef780
+  docs/models/agentstatusresponsefiles.md:
+    id: 99cd192f1f1a
+    last_write_checksum: sha1:adab864ffe21213f71fb654615e911dfd37e622d
+    pristine_git_object: 9f25cd1f24f2b350966aab2552117cf748c637c0
+  docs/models/answerrequest.md:
+    id: 46b30ff672f7
+    last_write_checksum: sha1:e09f897e0b47c798fdf857614cc802ba8642d93c
+    pristine_git_object: f7750dfea1e8e78f925c7d35932e610bd4d4db68
+  docs/models/answerresponse.md:
+    id: 1f58445bf70d
+    last_write_checksum: sha1:8739ca81437a7714f7776de7c793d9b97c3d2f52
+    pristine_git_object: c875ec0a953cdf1c692a3f2cbc1c18581ed0840c
+  docs/models/button.md:
+    id: 5d67cf083d84
+    last_write_checksum: sha1:1225bd530fc552375a7e30dc1e03bbd9e1141baa
+    pristine_git_object: 58ce24cc775a074f93a6bada5dee6c5a2f9f37f8
+  docs/models/clauderequest.md:
+    id: a1f2c5334b36
+    last_write_checksum: sha1:24f6311f19a0a2b88cc1960b897cf2c67c969634
+    pristine_git_object: 0c86be66ea31dfdbb32757fedae014e3961f1bbb
+  docs/models/clickrequest.md:
+    id: c1fd7621e3fa
+    last_write_checksum: sha1:f47561b760e0b16e538297c60cf434fd85e87cc7
+    pristine_git_object: 1c474de26bad371bada46e6e94903b74dbb5d2c9
+  docs/models/clickrequest1.md:
+    id: 19b4be88439e
+    last_write_checksum: sha1:a68054a964702d626712f0d3934bd0b3b70ff220
+    pristine_git_object: 1536546675f928e7515c77d0a9a8d2c8a6aacdee
+  docs/models/downloadrequest.md:
+    id: 4f9799c8a8ec
+    last_write_checksum: sha1:ad51ee60d2c4499ec6983c2cf3f81af6ee4c94ae
+    pristine_git_object: 6a4d754fa84e06e27642863dd9570596a5e5b28b
+  docs/models/dragrequest.md:
+    id: ba0ab729b0d0
+    last_write_checksum: sha1:658873b4518e694766525d180a15a5d78d4192d8
+    pristine_git_object: d443eac99e42da85a86f256766488175ca72d2a0
+  docs/models/dragrequest1.md:
+    id: 5b0c0d23ea2c
+    last_write_checksum: sha1:3d1a82405e8d62053bb3bdbcfc5ac1c6fa212990
+    pristine_git_object: 4f3236a219b6d0d4554c703ebf9c7e7ada85074b
+  docs/models/dragrequestbutton.md:
+    id: ef3f39aef05e
+    last_write_checksum: sha1:fda698be4e9ae57090ccc9aa1dc8c5a42925736f
+    pristine_git_object: ca844114704cd5e4db6d3b04d4fd662f59a14d5a
+  docs/models/filedownloadresponse.md:
+    id: 072131bca6ba
+    last_write_checksum: sha1:74ff5e2401bd476cd9f0a34f21717ae3f71a9d54
+    pristine_git_object: 7562fa4c8d434c935958ceb3206295c826895d33
+  docs/models/filesmodel.md:
+    id: c1992ed7c55e
+    last_write_checksum: sha1:15b84bea047ed53b1d259d274bb2b3fa575fe303
+    pristine_git_object: 7e642bff732d1e9cfd440a50fdf0cab6ebe7228e
+  docs/models/fileuploadresponse.md:
+    id: 39c823a01241
+    last_write_checksum: sha1:cc4e20ae98ef3ffa7a1337c7e61ee15d2142c1f6
+    pristine_git_object: 7b002925f3e25c220de6cf2ad1fa35927105a0e9
+  docs/models/forbiddenerrorresponse.md:
+    id: 013291eeac80
+    last_write_checksum: sha1:e0ea8f7248827509b9db00fabe87d575db80b34f
+    pristine_git_object: 63ec7ac616a5ceb81dff369dd88dd25c03752329
+  docs/models/httpvalidationerror.md:
+    id: a211c095f2ac
+    last_write_checksum: sha1:277a46811144643262651853dc6176d21b33573e
+    pristine_git_object: 712a148c3e2305dca4c702851865f9f8c8e674cc
+  docs/models/humaninputrequest.md:
+    id: 86ec0007741f
+    last_write_checksum: sha1:7f1af921fce88bd7f01fdda1aa75d35ac41906e9
+    pristine_git_object: 9f7278f6218eead3406cc110c76026dac8075a9b
+  docs/models/inactiveoperationresponse.md:
+    id: 7ae1ae84de16
+    last_write_checksum: sha1:57913587b2ebf22137fc12aa29a13b7a837c74c7
+    pristine_git_object: 94d5a8fe432b297716184c78b1bf92a04103a251
+  docs/models/installrequest.md:
+    id: a5d3d0f80de7
+    last_write_checksum: sha1:2db93662352fcdc1abc0078d08c4daa73c4eb6e1
+    pristine_git_object: bd97da5c4db48b9ace57f69fb04d92443025f799
+  docs/models/instancerequest.md:
+    id: 121a117b9c53
+    last_write_checksum: sha1:b692e82ccc2e842cde37f180cf350486648fd7eb
+    pristine_git_object: ab1f1ec249445f30d7baf426ab9d56c6e75bbdd8
+  docs/models/instanceslistresponse.md:
+    id: fbba52ca5ca8
+    last_write_checksum: sha1:708b26a1447c6ae40891835ba90cd4439d91b095
+    pristine_git_object: 9564993a90b81ee1848b4b3282f5b5c69eabf8dd
+  docs/models/instancestartresponse.md:
+    id: f631a2324660
+    last_write_checksum: sha1:ab86d8acbd0b97a8ffc197308fbb4ef3cb3bce2a
+    pristine_git_object: 2090fe3d5f7a89d51de4983f5b07b96090b1ae33
+  docs/models/instancestatusresponse.md:
+    id: 2a80b078a9e2
+    last_write_checksum: sha1:cd95f8523b243f5b932bca64ac3f2bbe9e5f70be
+    pristine_git_object: 3f27df346293c181c53204fa4b8bb8710841fed6
+  docs/models/interactmodelserrorresponse.md:
+    id: 1f684b4606b2
+    last_write_checksum: sha1:7eb3a92d234ef6c0ddb89e9ede1709c65ea6d8db
+    pristine_git_object: 22f0cbef068f924747dfe205bef78ae57b97c403
+  docs/models/keypressrequest.md:
+    id: a9cc4bdcb08e
+    last_write_checksum: sha1:8e8a2ba3ef3893293353981fc8effd3291ea1bb8
+    pristine_git_object: 224a2e38cb8fb16fe097d539e0e91a1f07f6c7b8
+  docs/models/keyrequest.md:
+    id: 74678cc7c57a
+    last_write_checksum: sha1:d42a1ed3046e4af3a4f988cd733d51016d605d8f
+    pristine_git_object: e2c27112467c6772d8f8a56bcdc26e61ef0f9cba
+  docs/models/loc.md:
+    id: b071d5a509cc
+    last_write_checksum: sha1:09a04749333ab50ae806c3ac6adcaa90d54df0f1
+    pristine_git_object: d6094ac2c6e0326c039dad2f6b89158694ef6aa7
+  docs/models/messages.md:
+    id: 2103cd675c2f
+    last_write_checksum: sha1:b513832f6f910f64c194492643211583050cc191
+    pristine_git_object: 55166ecdcbf2979ff3c5c8e604f38a283e18bf91
+  docs/models/mousemoverequest.md:
+    id: 866de3ec4d12
+    last_write_checksum: sha1:305fe3789c11f4e43d72460ae76dff3acb1a5c93
+    pristine_git_object: 70a3f34e5ffd09ed297cc0b1a81fe18fb56dfae6
+  docs/models/moverequest.md:
+    id: 554d40d00555
+    last_write_checksum: sha1:3fd2e6c0cb882584b363340ec891ea63dc0fbd92
+    pristine_git_object: 3e2c00b2e6ea3dba7701a99c857806c5ebf9c71a
+  docs/models/packageinstallrequest.md:
+    id: 3cb48a5af9c9
+    last_write_checksum: sha1:bbc35f87ecbfd5f19b958a0afedc6929840b4713
+    pristine_git_object: c6fae570b916468e3f3cdaa64b54f76f483c1e08
+  docs/models/packageinstallresponse.md:
+    id: b2bea31cd5a7
+    last_write_checksum: sha1:a9226bf15b36a3b9a2f9ed514387c1b6ef5e9ee7
+    pristine_git_object: 8d8c6147708ef2ddea1d7e562bf8f9ac48f455ce
+  docs/models/pauserequest.md:
+    id: c5ed2ebb0c20
+    last_write_checksum: sha1:8d54a151a3b65ce057c934bb68f50b420de6a487
+    pristine_git_object: a370586ff03e17e3f6da8567d2466ce58d01d197
+  docs/models/resumerequest.md:
+    id: b4d2c929672e
+    last_write_checksum: sha1:491c3cfaf512c48b5b5c288133565d3898b735e5
+    pristine_git_object: 48b5abe6486265c689b57cddff6b03538963d9cd
+  docs/models/runrequest.md:
+    id: a21e1baec41d
+    last_write_checksum: sha1:a81b4862cded4d3cc91078a937bf7b0cca2a3e42
+    pristine_git_object: e62f9273b5b0152280c91d8541a5bb2e124a7220
+  docs/models/s3vmuploadrequest.md:
+    id: 16f4406ec320
+    last_write_checksum: sha1:5f459a11118effad109f87799234d15e7a7afc6d
+    pristine_git_object: b14dd81243a6caccba1ca59f8140d253a196b8a6
+  docs/models/screenshotrequest.md:
+    id: 77d7ae9c7b70
+    last_write_checksum: sha1:3507dc59003f3c843cc6fb80b5a7fe4f0aae6878
+    pristine_git_object: 575e82dc0b1f2431be2fcd8684177843e942a613
+  docs/models/screenshotresponse.md:
+    id: 06d83682cece
+    last_write_checksum: sha1:83705ec3ef71d136dd6b969be141a537d7ceb076
+    pristine_git_object: b877cef63234b7734eed8d0aac4dfca3de7199d7
+  docs/models/scrollrequest.md:
+    id: f9b73162ff97
+    last_write_checksum: sha1:f2967c051336a60fed2760c853151dc27e3680d5
+    pristine_git_object: 9bad73f1587c73e82a25b8412a658e3826fa4a45
+  docs/models/scrollrequest1.md:
+    id: 3618725465f4
+    last_write_checksum: sha1:b223a423b151a9b7087bcfb5b0a835a5b35152a8
+    pristine_git_object: d478d3623241fa56fc33162a9ddeaa173e9b6128
+  docs/models/security.md:
+    id: 452e4d4eb67a
+    last_write_checksum: sha1:f2d50f4697268fc8a707bb86fd412bb3ea31e8a2
+    pristine_git_object: 4040f911a72a3dd5d29eb5501a23ebbed2b03bac
+  docs/models/standardresponse.md:
+    id: 5c6de510a6a0
+    last_write_checksum: sha1:1d26839dd340bc0d16cd3e790831953b4dbcf353
+    pristine_git_object: 01c1553c08099cea3798e4594c1bedbfe3fd2cd7
+  docs/models/staterequest.md:
+    id: 02a93dfb5dbe
+    last_write_checksum: sha1:c9ac53c0d901c3dbbbef998d30189aa589d0bfe5
+    pristine_git_object: 3476d639b1068ba7f7ba32a53497ec984e07ddd4
+  docs/models/statusrequest.md:
+    id: 2351d613b382
+    last_write_checksum: sha1:5c57aa6841fc59efe1f3053870835b96e64374c5
+    pristine_git_object: 0364032dc1666ecab3771922a1f167b631090dd4
+  docs/models/stoprequest.md:
+    id: 7533db0354b7
+    last_write_checksum: sha1:af11129c13956bc307fad6b347596fa5090de7a7
+    pristine_git_object: 9e25de6b45ec6773af7383627ed98ceea6aa1a79
+  docs/models/terminaterequest.md:
+    id: 522c950e3c41
+    last_write_checksum: sha1:3e1d1bb3c520342a754aec8effdd06f5fa39ed65
+    pristine_git_object: fc6b3ed2845f02b3ca01035a275bd4ace30fabbb
+  docs/models/typerequest.md:
+    id: 5d1d57b777b0
+    last_write_checksum: sha1:e13c66cc2d0e5e61d30a5f333b18460f679e7209
+    pristine_git_object: 6c7e662e34cf53d7e0925af33b1defae6d41935a
+  docs/models/typerequest1.md:
+    id: a18e0924b1c8
+    last_write_checksum: sha1:36c29e35f6a9f73981705a5c62d8c66d16ad24d2
+    pristine_git_object: 41f6af29b788c742b317a4b1e9c8d23fa929d732
+  docs/models/uploadrequest.md:
+    id: 908de1873d07
+    last_write_checksum: sha1:5a11eddaa5c119f601f4c1fc80d3c4bb4092266f
+    pristine_git_object: bb5ac0fa473b0d36c7b85c8c79ef43664d0314a5
+  docs/models/utils/retryconfig.md:
+    id: 4343ac43161c
+    last_write_checksum: sha1:562c0f21e308ad10c27f85f75704c15592c6929d
+    pristine_git_object: 69dd549ec7f5f885101d08dd502e25748183aebf
+  docs/models/validationerror.md:
+    id: 304bdf06ef8b
+    last_write_checksum: sha1:1889f608099577e6a116c14b211a6811d6b22786
+    pristine_git_object: 7a1654a1a5cfb3ab92360b361e8e962bf2db4582
+  docs/models/windowsmodelserrorresponse.md:
+    id: 52beced4d9fe
+    last_write_checksum: sha1:ae6de37161f33050d3cc5feb24227ac2d237c4f4
+    pristine_git_object: 7ae1da9078eddceffc5442f7da3788ebf4fa7451
+  docs/sdks/agent/README.md:
+    id: 6e1cf5aab95b
+    last_write_checksum: sha1:c23bd06cef018da4dde206b1fb87314bed52d48b
+    pristine_git_object: 9d1307463471bb10c903263c484902ec3e454528
+  docs/sdks/files/README.md:
+    id: e576d7a117f0
+    last_write_checksum: sha1:3947d8f2c440a2912cab93430ece50ce66f01c1c
+    pristine_git_object: 1188d8686824d80265195b406414f3da35b0a2d8
+  docs/sdks/interact/README.md:
+    id: 2636adeba3ff
+    last_write_checksum: sha1:9c30ea125b682a2aa198320c8ba157d70ef45166
+    pristine_git_object: 4b370affb0215e421d6ac03a838cf39ba758e212
+  docs/sdks/windows/README.md:
+    id: 5f42ed5c0d8a
+    last_write_checksum: sha1:6f7a1e28db276a02f02f93b35ce0566f8b8c5998
+    pristine_git_object: 5525ba084d3c1e9665c6db14fc57917dc2d7d0ad
+  poetry.toml:
+    id: a81ade82122a
+    last_write_checksum: sha1:2242305e29dc6921bdf5b200aea5d4bf67830230
+    pristine_git_object: cd3492ac9dc870fdcf23dbd94fd1d40cc753cc8e
+  py.typed:
+    id: 258c3ed47ae4
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  pylintrc:
+    id: 7ce8b9f946e6
+    last_write_checksum: sha1:74f9db0c1fc4ab227dae52adda09140e80493fa4
+    pristine_git_object: f229f4403d13c25494eeacdedc8cc232a8b9553b
+  pyproject.toml:
+    id: 5d07e7d72637
+    last_write_checksum: sha1:275eab4d3cf47a94b750419de4496f7269b8d781
+    pristine_git_object: 5f28f60f9f89d33b22e1e5f3a47bee39834bafef
+  scripts/prepare_readme.py:
+    id: e0c5957a6035
+    last_write_checksum: sha1:0172e38e398c80bce6bd839046df05a8656dc73b
+    pristine_git_object: 933720220f123fab2af0de78d6fbca6a2c0f7daf
+  scripts/publish.sh:
+    id: fe273b08f514
+    last_write_checksum: sha1:b31bafc19c15ab5ea925fdf8d5d4adce2b115a63
+    pristine_git_object: 2a3ead70ccc6228cbae1c5c8a319b1399f3804ea
+  src/skylight_sdk/__init__.py:
+    id: 977004fa7941
+    last_write_checksum: sha1:eec86b555287a1f966479167defba81fe37be83f
+    pristine_git_object: d028dd22db25a8dfa0f8c44641ceed256e9d9e46
+  src/skylight_sdk/_hooks/__init__.py:
+    id: 4829b70eb454
+    last_write_checksum: sha1:e3111289afd28ad557c21d9e2f918caabfb7037d
+    pristine_git_object: 2ee66cdd592fe41731c24ddd407c8ca31c50aec1
+  src/skylight_sdk/_hooks/sdkhooks.py:
+    id: 7a6987ad8a55
+    last_write_checksum: sha1:613efe64a6eb2b483951aa07d3abb51001f44ba9
+    pristine_git_object: 14c12e3693a81a2de0bd0839120db98932a58715
+  src/skylight_sdk/_hooks/types.py:
+    id: 80dd2f085857
+    last_write_checksum: sha1:d7acae0250a63d3bf27251e61e86a228f60660df
+    pristine_git_object: 076088563bd82e2b668333238819ca846d29f012
+  src/skylight_sdk/_version.py:
+    id: cfc216dc25c4
+    last_write_checksum: sha1:645e935a1bb9d3f4d999d6945e6535eb1a2f984c
+    pristine_git_object: 73f7594713b4bc33f74181e33a98716de62c6b03
+  src/skylight_sdk/agent.py:
+    id: 77ee480e3550
+    last_write_checksum: sha1:c616a619421f1b150a8eae341bd69db11e2b977e
+    pristine_git_object: 3ded692928d890f642d195bc60263b7b17965887
+  src/skylight_sdk/basesdk.py:
+    id: ae2c2211ca9e
+    last_write_checksum: sha1:6cf246056f463c62d3f0b39228dfcb64fd5486d0
+    pristine_git_object: 6a13ea2804bb854f49c948e80c758e3b220624ae
+  src/skylight_sdk/files.py:
+    id: 52412d0d1d33
+    last_write_checksum: sha1:540c8aa5d0d05686c4d54456bc24f2180bf0f7ee
+    pristine_git_object: 0e85fe47be61c299515284603f8ea429057a8277
+  src/skylight_sdk/httpclient.py:
+    id: a9a476023883
+    last_write_checksum: sha1:5e55338d6ee9f01ab648cad4380201a8a3da7dd7
+    pristine_git_object: 89560b566073785535643e694c112bedbd3db13d
+  src/skylight_sdk/interact.py:
+    id: 1cc4a1997341
+    last_write_checksum: sha1:52e34c09a8b4117e0328550befba19ceadeb5070
+    pristine_git_object: 77fe2f2d7d7a5c61a79f7b8e5bc13e3d1b436031
+  src/skylight_sdk/models/__init__.py:
+    id: f7d49a87b5c4
+    last_write_checksum: sha1:59389ce9174969cc4b495b055b93b8532b01fb91
+    pristine_git_object: 57d86c8378bc0c940268e3d98f6e84eb2b666019
+  src/skylight_sdk/models/activeoperationresponse.py:
+    id: 76e8c25ab7cb
+    last_write_checksum: sha1:1576a076c73e672b1ce62c3efa374b72f412c3a0
+    pristine_git_object: 7769ff6e2e2e40f991cbfe7c8cc8807a871d62dc
+  src/skylight_sdk/models/agentstatusresponse.py:
+    id: afb038f4338f
+    last_write_checksum: sha1:3d9a3039e50703df332e1cf2d3952561a3ee29b2
+    pristine_git_object: 7c7ca27294769974cca97010cb56da386a0d33a3
+  src/skylight_sdk/models/answerop.py:
+    id: 3069b5c62999
+    last_write_checksum: sha1:c41b918fa397659ec67a707253f23e38a77b4afd
+    pristine_git_object: c9472dc78612894f91478739b1692136ae30c918
+  src/skylight_sdk/models/apierror.py:
+    id: 0a47baf9f366
+    last_write_checksum: sha1:e74aac51582cf308d8f9695cb471486bf1e115d8
+    pristine_git_object: 207d6766f17e07396fd383a7e541f1f453153804
+  src/skylight_sdk/models/clauderequest.py:
+    id: 0559a455e86c
+    last_write_checksum: sha1:f759785375b050da3ba320ae4744e730abeeb4c3
+    pristine_git_object: 2b7a8fbe7205d85c5492a549de3d3c525621ac69
+  src/skylight_sdk/models/clickop.py:
+    id: a1f5a24d55a5
+    last_write_checksum: sha1:e9ff9249c23c1a96790632e081c6bc3fd0f8292b
+    pristine_git_object: cfb3cd97891305915cdb2a3e874dc6f75f58bc54
+  src/skylight_sdk/models/clickrequest.py:
+    id: e236fd598198
+    last_write_checksum: sha1:4be4c7f30aed67cb7223c643673e85e626e927df
+    pristine_git_object: 31337c9b70a8077edef8f01e6752b4f3f2c6aa08
+  src/skylight_sdk/models/downloadop.py:
+    id: e83ee4cb7308
+    last_write_checksum: sha1:76ab8a477119ee79952b5da24b092fc093a6a615
+    pristine_git_object: f6df506cb311f90681829c1d16e84bbe7b290b3a
+  src/skylight_sdk/models/dragop.py:
+    id: 1b753abb5747
+    last_write_checksum: sha1:dee3f708c93d0e4f80e010a52e987ca8e697535c
+    pristine_git_object: aae6c3112a2a25770b1a6ba11afd456757f76f5a
+  src/skylight_sdk/models/dragrequest.py:
+    id: 60f0a987d22a
+    last_write_checksum: sha1:89ea4336e8b4fd951c26485d8dad8403b2d3b7bd
+    pristine_git_object: db09cadf8a30eca59b1c29cb09f6dee15efaf810
+  src/skylight_sdk/models/filedownloadresponse.py:
+    id: 321165be785f
+    last_write_checksum: sha1:efe2719ee020f60b17d623dc762383afa2883fb7
+    pristine_git_object: 3c9a89a25973b30b09f4cc9c28728b369fe136b7
+  src/skylight_sdk/models/fileuploadresponse.py:
+    id: b593f7c9a5c1
+    last_write_checksum: sha1:59d50bdb1866a62ea41fe9257f92b16519033ad1
+    pristine_git_object: a829bc40dcd9fdb3a7d1bf96f5aee2d7c7fe4d75
+  src/skylight_sdk/models/forbiddenerrorresponse.py:
+    id: 2c6c620969f5
+    last_write_checksum: sha1:b84fe08b003e4261b823ffbac789f8b29b71375e
+    pristine_git_object: 9450a8c8471fe4890da7be54345c01898ad7ff56
+  src/skylight_sdk/models/httpvalidationerror.py:
+    id: b946e820525f
+    last_write_checksum: sha1:0d0da09be58f8f41da49fec2823f03eadbb2c933
+    pristine_git_object: 05cb0c43e8650b21bbb8b3807a4190ae7645ac1e
+  src/skylight_sdk/models/inactiveoperationresponse.py:
+    id: 0dd02f3bd3dd
+    last_write_checksum: sha1:ffb77b003d9aa66ae228613f58f6cd8d492e9dea
+    pristine_git_object: 9e5549d55cb4a17b46c956522f9036ef00bfe917
+  src/skylight_sdk/models/installop.py:
+    id: 9771502c9a89
+    last_write_checksum: sha1:95c790fabeee68faf43276ad1db3497fdf6034d0
+    pristine_git_object: 37d8337574d0aefdf2fe34bd61817b03af28ca75
+  src/skylight_sdk/models/instancerequest.py:
+    id: 9a237dbb6f94
+    last_write_checksum: sha1:39dc5330ef366db9e4db6303e8fd837a86324b28
+    pristine_git_object: 5c2ad6f7bcbc05ca83bb6e1d03855156c1d03eb2
+  src/skylight_sdk/models/instanceslistresponse.py:
+    id: a256991d4bbf
+    last_write_checksum: sha1:fa11d333d7cf90b5f60bd82a1dacbdc3e2d8732d
+    pristine_git_object: 2a80f64ae6c956b012068c1934088e87cdc42201
+  src/skylight_sdk/models/instancestartresponse.py:
+    id: e547f8163d76
+    last_write_checksum: sha1:d1129aac09155c13cca3cff84bdb6925c37f697a
+    pristine_git_object: e7d726a9215f5e50e2f3fe84b0f2b4bd802588ef
+  src/skylight_sdk/models/instancestatusresponse.py:
+    id: 46c6c8fbda34
+    last_write_checksum: sha1:504f1ad04b4e4a3266701e37e25833d50e73b64b
+    pristine_git_object: d97ff936a13ae06204a06dbb65f1cda214a1d130
+  src/skylight_sdk/models/interact_models_errorresponse.py:
+    id: c5f249691d5a
+    last_write_checksum: sha1:0a4818f9296bbf8c8ba7d90ab4b412ffd1eeb832
+    pristine_git_object: d33c8fd7aeadc697b88721c59461921aec3fefca
+  src/skylight_sdk/models/keypressop.py:
+    id: b3e81695dcec
+    last_write_checksum: sha1:930cb49b4b4c572e4827263b88e70e9991d34a87
+    pristine_git_object: d41f6141abd0bc1d2f22c3a5f4910a57d529c394
+  src/skylight_sdk/models/keyrequest.py:
+    id: 0424936e71a3
+    last_write_checksum: sha1:9bb27aef30ce244fc7ff137a43e71128e5289f5a
+    pristine_git_object: 679bc3ee7b1c5afeb627989b9a658edb653754ef
+  src/skylight_sdk/models/mousemoverequest.py:
+    id: 9e1dfcc1072a
+    last_write_checksum: sha1:359729459d77d843155d15f7e8228d7039534d94
+    pristine_git_object: 172338abac76353d8fa13f6c40bc4b597aec4c50
+  src/skylight_sdk/models/moveop.py:
+    id: b8ce27dce510
+    last_write_checksum: sha1:4a93da495c808d70f909e1aebdca34c8600e7b7b
+    pristine_git_object: facb9f985885b23b4c6a4584ed4d00696ca9ed73
+  src/skylight_sdk/models/no_response_error.py:
+    id: 45a85cd2df6b
+    last_write_checksum: sha1:7f326424a7d5ae1bcd5c89a0d6b3dbda9138942f
+    pristine_git_object: 1deab64bc43e1e65bf3c412d326a4032ce342366
+  src/skylight_sdk/models/packageinstallrequest.py:
+    id: 39a96a257ff1
+    last_write_checksum: sha1:189a95a03023f73f397f62606f49c718b308424e
+    pristine_git_object: ea5245d20142a589aad8ed8e116e1d9d939b7c91
+  src/skylight_sdk/models/packageinstallresponse.py:
+    id: 12dab80bbcd7
+    last_write_checksum: sha1:aef94f43328f3a19f7bbf6e87be0d5cc4304a6ee
+    pristine_git_object: ad85b9df972e2e3eccc9a9735cc9e261131bd6f2
+  src/skylight_sdk/models/pauseop.py:
+    id: 6e8d2c9ed23d
+    last_write_checksum: sha1:e3c3e959ce516ee99bac16bce3de4d405c494bca
+    pristine_git_object: 989b768439308a9eb50fc09c762581fbb5f3098d
+  src/skylight_sdk/models/responsevalidationerror.py:
+    id: afabe28c5b9b
+    last_write_checksum: sha1:db1324a400cd3cae1e5b7b58669aab3309f7a0c4
+    pristine_git_object: 4732db345adba479643cb60063f6be0657c6bd73
+  src/skylight_sdk/models/resumeop.py:
+    id: c031045c76aa
+    last_write_checksum: sha1:b691d4b79a402f8fdbc237abc54dd728d8ff69c7
+    pristine_git_object: c9ffd1780101a1cf4e75a45b8018b221d79c6481
+  src/skylight_sdk/models/runop.py:
+    id: 35a9d1bde071
+    last_write_checksum: sha1:d2dd14c6b93f5c91a98dc05305c5ba833d9da69b
+    pristine_git_object: 995698e2a880d894a1e125431efacb75eba2941f
+  src/skylight_sdk/models/s3vmuploadrequest.py:
+    id: c7d23c907982
+    last_write_checksum: sha1:883d360865a6f4502d6794770e28ef552aef3107
+    pristine_git_object: f720c3556af86ec5a41d4dc4d7a89d34019fa9d6
+  src/skylight_sdk/models/screenshotop.py:
+    id: 3f892b33cc62
+    last_write_checksum: sha1:9fa3c499b267f7ecbb38dee8c203bcf122876d50
+    pristine_git_object: de5a3de1d54ded68b8d3c922fce58560aee3057c
+  src/skylight_sdk/models/screenshotresponse.py:
+    id: a17eb0d17281
+    last_write_checksum: sha1:3393065aa5546e2495749233f37f194f0160f167
+    pristine_git_object: 1b6f4c1be3ec8821a7953d61a62aae07f7a2ad3f
+  src/skylight_sdk/models/scrollop.py:
+    id: 17d099f584ab
+    last_write_checksum: sha1:1cfdfb60f0e5f17431578287a266961c76f6bea3
+    pristine_git_object: 46a454dc2a8e43f04aa036ffcf5b7c4c69913cc4
+  src/skylight_sdk/models/scrollrequest.py:
+    id: 18bd774e79dd
+    last_write_checksum: sha1:ad94eb136acd51ac83552e5ee2d8927b33d4826b
+    pristine_git_object: b264e0c7c1fc90bb99e06def85906934211cb949
+  src/skylight_sdk/models/security.py:
+    id: 78349bd07126
+    last_write_checksum: sha1:70c99dff88f2130e5b287cd36681185e6a032da6
+    pristine_git_object: f3b41e4e73380c1ad7b63051942f312da790fcb7
+  src/skylight_sdk/models/skylighterror.py:
+    id: e0fe3723d371
+    last_write_checksum: sha1:cc5d42a106f0161319473b003235938cefe076f5
+    pristine_git_object: f9091ddadeff2340ca2e14725dc2b63c45a9a5c3
+  src/skylight_sdk/models/standardresponse.py:
+    id: 62a29a016669
+    last_write_checksum: sha1:11a0a888cc4c04b90d0cb6aad77c52fd2b04872a
+    pristine_git_object: 01b0bcc1c043ffed0d24ab1428d4baa7dc756f74
+  src/skylight_sdk/models/stateop.py:
+    id: 3b7d39cacc4b
+    last_write_checksum: sha1:4fc3f697c2854ad7b373b216554a33575ae73f6f
+    pristine_git_object: f6639d918cc247ed1e0219141a472e539348471b
+  src/skylight_sdk/models/statusop.py:
+    id: 68549826b2e4
+    last_write_checksum: sha1:bbf3abfb218a9026453e5bca298b49309dc2bc92
+    pristine_git_object: 7afbbd7edafb9583aba464127cd1cb0c1bcbbc73
+  src/skylight_sdk/models/stopop.py:
+    id: 70d99a0b572d
+    last_write_checksum: sha1:2b2a2caab28cfc7b63975b9bc3909b1dbb6f5abe
+    pristine_git_object: a913ac7aa0160ef5c4b981fa65cd58164d9c4350
+  src/skylight_sdk/models/terminateop.py:
+    id: bbdaa6c2ee3a
+    last_write_checksum: sha1:5363f1cd2afde760602e5b306cab2a3e4e1672e6
+    pristine_git_object: e95e8d1fdd1add2b5b2a7fc5a340aa5e4c04c005
+  src/skylight_sdk/models/typeop.py:
+    id: 7f356169b39b
+    last_write_checksum: sha1:fc111094539dd748acec8b64641016fbc92cdaed
+    pristine_git_object: 4f562dd7f0e22e17a3e092473c0f5d0835a0aae8
+  src/skylight_sdk/models/typerequest.py:
+    id: d4a5096572c9
+    last_write_checksum: sha1:342bc467562e648a72ef4b93bd5c96873af16dbf
+    pristine_git_object: ef649348e764edfdecf7619b812ee7c0fcf53c00
+  src/skylight_sdk/models/uploadop.py:
+    id: 67b46638baa5
+    last_write_checksum: sha1:6d799161fe7f33918cd9dad2d7390c4a992c7409
+    pristine_git_object: cdf49d028f80352e173aee870ef80548f69c223e
+  src/skylight_sdk/models/validationerror.py:
+    id: c7dc56ef63ba
+    last_write_checksum: sha1:ae74b816d706e0aec54cec205376c60830019d04
+    pristine_git_object: a1042a90a23888272c429496e7f8620de20ff7e5
+  src/skylight_sdk/models/windows_models_errorresponse.py:
+    id: 6249177ca2d1
+    last_write_checksum: sha1:d6008b57e77c80480ca29f5c10641e5d68b9da01
+    pristine_git_object: 20ffad2733b6cc0ad0cb4d0324e0975a4019025b
+  src/skylight_sdk/py.typed:
+    id: b8820f9ca0fa
+    last_write_checksum: sha1:8efc425ffe830805ffcc0f3055871bdcdc542c60
+    pristine_git_object: 3e38f1a929f7d6b1d6de74604aa87e3d8f010544
+  src/skylight_sdk/sdk.py:
+    id: d4328dd39379
+    last_write_checksum: sha1:3e2e433160b06165b12c969236ea12c7eaa071c6
+    pristine_git_object: 238c166c07ed8bdc18adb40b8c24d9d741a86c08
+  src/skylight_sdk/sdkconfiguration.py:
+    id: aef037d0991e
+    last_write_checksum: sha1:c5f6cfb910c5fa72c5be432862fb67ea1a04378e
+    pristine_git_object: 3bf58381782e65cdaa9c42d920e13924ead35717
+  src/skylight_sdk/types/__init__.py:
+    id: a8954560c000
+    last_write_checksum: sha1:f9ad14217f832e74f594285960125add50324be9
+    pristine_git_object: faa268137bc01c9d08cfadc4797017db48747a96
+  src/skylight_sdk/types/base64fileinput.py:
+    id: 7a9e42b3655f
+    last_write_checksum: sha1:1522687ae3398374c35710cad993a6e82b5ab99d
+    pristine_git_object: 862566fe2b1db830276b390e136e65090e5963d2
+  src/skylight_sdk/types/basemodel.py:
+    id: bb11a313d945
+    last_write_checksum: sha1:10d84aedeb9d35edfdadf2c3020caa1d24d8b584
+    pristine_git_object: a9a640a1a7048736383f96c67c6290c86bf536ee
+  src/skylight_sdk/utils/__init__.py:
+    id: b1987ef8bd96
+    last_write_checksum: sha1:0f93d821f9cb3e061ea125d881bb6f61166738dd
+    pristine_git_object: aded7597c2bbc4e3fa7f555755d894671ac57741
+  src/skylight_sdk/utils/annotations.py:
+    id: 7b163fe39969
+    last_write_checksum: sha1:a4824ad65f730303e4e1e3ec1febf87b4eb46dbc
+    pristine_git_object: 12e0aa4f1151bb52474cc02e88397329b90703f6
+  src/skylight_sdk/utils/datetimes.py:
+    id: c87260d39305
+    last_write_checksum: sha1:c721e4123000e7dc61ec52b28a739439d9e17341
+    pristine_git_object: a6c52cd61bbe2d459046c940ce5e8c469f2f0664
+  src/skylight_sdk/utils/dynamic_imports.py:
+    id: 20a1bade1c86
+    last_write_checksum: sha1:a1940c63feb8eddfd8026de53384baf5056d5dcc
+    pristine_git_object: 673edf82a97d0fea7295625d3e092ea369a36b79
+  src/skylight_sdk/utils/enums.py:
+    id: 7c2b0c72ecd7
+    last_write_checksum: sha1:bc8c3c1285ae09ba8a094ee5c3d9c7f41fa1284d
+    pristine_git_object: 3324e1bc2668c54c4d5f5a1a845675319757a828
+  src/skylight_sdk/utils/eventstreaming.py:
+    id: 25abf9e3ecfe
+    last_write_checksum: sha1:7d1dc68f8b48486ab646653aa05cc38752e1f912
+    pristine_git_object: a8d4fe5cc88d3c7337339e1b36a61bbf7ca8c4eb
+  src/skylight_sdk/utils/forms.py:
+    id: 31886729b6b2
+    last_write_checksum: sha1:a971cdb120ad3d416d296d5d0ad89e4808350a7f
+    pristine_git_object: fdf0dc9b2a67bca773eefe6b471498cccaa83424
+  src/skylight_sdk/utils/headers.py:
+    id: 165ecbd1d00c
+    last_write_checksum: sha1:7c6df233ee006332b566a8afa9ce9a245941d935
+    pristine_git_object: 37864cbbbc40d1a47112bbfdd3ba79568fc8818a
+  src/skylight_sdk/utils/logger.py:
+    id: 1fbcfa11782c
+    last_write_checksum: sha1:e1c0066799626e9c06b35baae7a989f870080be0
+    pristine_git_object: d84660a6316ad50ffe5214d3b877db7c8cefcd23
+  src/skylight_sdk/utils/metadata.py:
+    id: 8c8702cc36c1
+    last_write_checksum: sha1:e703e5cbb5255144aacf86898d1420529afaaff8
+    pristine_git_object: 5abddd588837ac297050ca3b543627faadb350a9
+  src/skylight_sdk/utils/queryparams.py:
+    id: 58a9670fa9c8
+    last_write_checksum: sha1:b94c3f314fd3da0d1d215afc2731f48748e2aa59
+    pristine_git_object: c04e0db82b68eca041f2cb2614d748fbac80fd41
+  src/skylight_sdk/utils/requestbodies.py:
+    id: 30695e0b4cfb
+    last_write_checksum: sha1:e1fef575283b7fe7fe2ad392dbbb3fb105309124
+    pristine_git_object: 591415af8e64baa410627b507d2740afb5387d13
+  src/skylight_sdk/utils/retries.py:
+    id: a6a1f9502c9d
+    last_write_checksum: sha1:3585b891142f30a597fbf7a2f0340700babef8e4
+    pristine_git_object: ca7b59efebbbd9545744d0207ef42725c4cc5143
+  src/skylight_sdk/utils/security.py:
+    id: b78a6c7455b0
+    last_write_checksum: sha1:ea8d87e1a3b629311e2097e1dbef72d62d9a1f3a
+    pristine_git_object: a2765e226b42384ee03d1f01005be73f1c4e7501
+  src/skylight_sdk/utils/serializers.py:
+    id: 457dd7cfb1a3
+    last_write_checksum: sha1:7485f1425b0661fd84836186570df90207eec6af
+    pristine_git_object: 1031ed930bad5ece220cf7416a56c29f40f0588b
+  src/skylight_sdk/utils/unmarshal_json_response.py:
+    id: cdd1368d5d97
+    last_write_checksum: sha1:40c3659ef6646cccf661799acbaa3a1b03ccbfdc
+    pristine_git_object: 9dda450fbe9a9194797146485293c843b14d2f84
+  src/skylight_sdk/utils/url.py:
+    id: 0757652f012e
+    last_write_checksum: sha1:6479961baa90432ca25626f8e40a7bbc32e73b41
+    pristine_git_object: c78ccbae426ce6d385709d97ce0b1c2813ea2418
+  src/skylight_sdk/utils/values.py:
+    id: c3d4b45dd406
+    last_write_checksum: sha1:acaa178a7c41ddd000f58cc691e4632d925b2553
+    pristine_git_object: dae01a44384ac3bc13ae07453a053bf6c898ebe3
+  src/skylight_sdk/windows.py:
+    id: 93a0dd6c8749
+    last_write_checksum: sha1:ff23d64dbed8f93be48a4f430f094f5de6f955f7
+    pristine_git_object: 0e6d72db38b0324b726fc54a33d0c89ba341bd31
+examples:
+  start:
+    speakeasy-default-start:
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"instance_id": "<string>", "message": "<string>", "livestream_url": "<string>", "state": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  pause:
+    speakeasy-default-pause:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>", "state": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  resume:
+    speakeasy-default-resume:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>", "state": "<string>", "livestream_url": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  terminate:
+    speakeasy-default-terminate:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>", "state": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  state:
+    speakeasy-default-state:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "The user previously asked to perform ....", "livestream_url": "https://launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z", "files": {}}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  instances:
+    speakeasy-default-instances:
+      responses:
+        "200":
+          application/json: {"instances": [{"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}, {"instance_id": "i-789012", "state": "stopped", "timeout": 60, "used_minutes": 10, "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-789012", "assigned_at": "2023-01-02T12:00:00Z"}]}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "500":
+          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
+  click:
+    speakeasy-default-click:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  drag:
+    speakeasy-default-drag:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"path": [{"x": 100, "y": 200}], "button": "left", "step": 5}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  screenshot:
+    speakeasy-default-screenshot:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"image": "base64_encoded_image_data"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  move:
+    speakeasy-default-move:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  keypress:
+    speakeasy-default-keypress:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"keys": ["super", "shift", "s"]}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "400":
+          application/json: {"detail": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  type:
+    speakeasy-default-type:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"text": "Hello, world!", "interval": 0.05}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  scroll:
+    speakeasy-default-scroll:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": 100, "step": 20}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  install:
+    speakeasy-default-install:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"packages": ["<value 1>"]}
+      responses:
+        "200":
+          application/json: {}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  run:
+    speakeasy-default-run:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"query": "Search for something on the VM"}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  stop:
+    speakeasy-default-stop:
+      parameters:
+        path:
+          instance_id: "<id>"
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  answer:
+    speakeasy-default-answer:
+      parameters:
+        path:
+          agent_id: "<id>"
+      requestBody:
+        application/json: {}
+      responses:
+        "200":
+          application/json: {"status": "<string>", "message": "<string>"}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  status:
+    speakeasy-default-status:
+      parameters:
+        path:
+          agent_id: "<id>"
+      responses:
+        "200":
+          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "messages": ["<value 1>", "<value 2>"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456", "human_input_request": {}}
+        "404":
+          application/json: {"detail": "<string>"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  upload:
+    speakeasy-default-upload:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"s3_url": "https://great-presume.info", "file_name": "example.file"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "File uploaded successfully", "file_path": "C:\\Users\\Public\\Downloads\\file.pdf"}
+        "400":
+          application/json: {"detail": "<string>"}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+  download:
+    speakeasy-default-download:
+      parameters:
+        path:
+          instance_id: "<id>"
+      requestBody:
+        application/json: {"key": "<value>", "key1": "<value>"}
+      responses:
+        "200":
+          application/json: {"status": "success", "message": "File download URL generated successfully", "download_url": "https://s3.amazonaws.com/bucket/file?token=..."}
+        "403":
+          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
+        "422":
+          application/json: {}
+        "500":
+          application/json: {"detail": "<string>"}
+examplesVersion: 1.0.2
+generatedTests: {}
 generatedFiles:
   - .devcontainer/README.md
   - .devcontainer/devcontainer.json
@@ -182,340 +1108,3 @@ generatedFiles:
   - src/skylight_sdk/utils/url.py
   - src/skylight_sdk/utils/values.py
   - src/skylight_sdk/windows.py
-examples:
-  start:
-    speakeasy-default-start:
-      responses:
-        "200":
-          application/json: {"instance_id": "<string>", "message": "Instance ready to use", "livestream_url": "launchskylight.com/embed/i-123456", "state": "running"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  install:
-    speakeasy-default-install:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"packages": ["<value>"]}
-      responses:
-        "200":
-          application/json: {"command_id": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  pause:
-    speakeasy-default-pause:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  resume:
-    speakeasy-default-resume:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running", "livestream_url": "launchskylight.com/embed/i-123456"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  state:
-    speakeasy-default-state:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "unknown", "livestream_url": "launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  instances:
-    speakeasy-default-instances:
-      responses:
-        "200":
-          application/json: {"instances": [{"instance_id": "i-123456", "state": "running", "timeout": 60, "used_minutes": 10, "knowledge": "The user previously asked to perform ....", "livestream_url": "https://launchskylight.com/embed/i-123456", "assigned_at": "2023-01-01T12:00:00Z"}]}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  terminate:
-    speakeasy-default-terminate:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "Operation completed successfully", "state": "running"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "The requested operation could not be completed due to a validation error"}
-  click:
-    speakeasy-default-click:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"x": 100, "y": 200, "button": "left", "clicks": 1}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  drag:
-    speakeasy-default-drag:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"path": [{"x": 100, "y": 200}], "button": "left", "step": 5}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  screenshot:
-    speakeasy-default-screenshot:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"image": "base64_encoded_image_data"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  move:
-    speakeasy-default-move:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"x": 100, "y": 200}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  keypress:
-    speakeasy-default-keypress:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"keys": ["super", "shift", "s"]}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "400":
-          application/json: {"detail": "<string>"}
-  type:
-    speakeasy-default-type:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"text": "Hello, world!", "interval": 0.05}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  scroll:
-    speakeasy-default-scroll:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"x": 100, "y": 200, "scroll_x": 0, "scroll_y": 100, "step": 20}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-  get_file:
-    speakeasy-default-get-file:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"key": "<value>"}
-      responses:
-        "200":
-          application/json: {}
-        "403":
-          application/json: {"detail": "<string>"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-    "":
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"key": "<value>"}
-      responses:
-        "200":
-          application/json: {"download_url": "https://s3.amazonaws.com/bucket/file?token=...", "expires_in": 3600}
-  run:
-    speakeasy-default-run:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"query": "Search for something on the VM"}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-  stop:
-    speakeasy-default-stop:
-      parameters:
-        path:
-          instance_id: "<id>"
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-  status:
-    speakeasy-default-status:
-      parameters:
-        path:
-          agent_id: "<id>"
-      responses:
-        "200":
-          application/json: {"agent_status": "running", "is_running": true, "total_steps": 5, "final_summary": "Successfully completed all tasks", "files": [{}], "messages": ["<value>"], "created_at": "2023-01-01T12:00:00Z", "query": "Find and download information about Windows", "agent_id": "agent-123456"}
-        "404":
-          application/json: {"detail": "<string>"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-  answer:
-    "":
-      parameters:
-        path:
-          agent_id: "<id>"
-      requestBody:
-        application/json: {}
-      responses:
-        "200":
-          application/json: {"status": "<string>", "message": "<string>"}
-        "404":
-          application/json: {"detail": "<string>"}
-        "422": {}
-        "500":
-          application/json: {"detail": "<string>"}
-  upload:
-    speakeasy-default-upload:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"s3_url": "https://needy-mallard.info/", "file_name": "example.file"}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "File uploaded successfully", "file_path": "C:\\Users\\Public\\Downloads\\file.pdf"}
-        "400":
-          application/json: {"detail": "<string>"}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-  download:
-    speakeasy-default-download:
-      parameters:
-        path:
-          instance_id: "<id>"
-      requestBody:
-        application/json: {"key": "<value>"}
-      responses:
-        "200":
-          application/json: {"status": "success", "message": "File download URL generated successfully", "download_url": "https://s3.amazonaws.com/bucket/file?token=..."}
-        "403":
-          application/json: {"detail": "Access forbidden: Invalid API key or insufficient balance"}
-        "422":
-          application/json: {}
-        "500":
-          application/json: {"detail": "<string>"}
-examplesVersion: 1.0.1
-generatedTests: {}
