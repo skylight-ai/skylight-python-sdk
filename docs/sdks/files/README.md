@@ -1,5 +1,4 @@
 # Files
-(*files*)
 
 ## Overview
 
@@ -19,6 +18,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="upload" method="post" path="/windows/files/upload/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -28,7 +28,7 @@ with Skylight(
     apikey=os.getenv("SKYLIGHT_APIKEY", ""),
 ) as skylight:
 
-    res = skylight.files.upload(instance_id="<id>", s3_url="https://needy-mallard.info/", file_name="example.file")
+    res = skylight.files.upload(instance_id="<id>", s3_url="https://great-presume.info", file_name="example.file")
 
     # Handle response
     print(res)
@@ -70,6 +70,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="download" method="post" path="/windows/files/download/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -81,6 +82,7 @@ with Skylight(
 
     res = skylight.files.download(instance_id="<id>", request_body={
         "key": "<value>",
+        "key1": "<value>",
     })
 
     # Handle response

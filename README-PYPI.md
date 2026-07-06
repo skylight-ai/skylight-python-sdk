@@ -58,7 +58,15 @@ Skylight API: Skylight API Documentation
 >
 > Once a Python version reaches its [official end of life date](https://devguide.python.org/versions/), a 3-month grace period is provided for users to upgrade. Following this grace period, the minimum python version supported in the SDK will be updated.
 
-The SDK can be installed with either *pip* or *poetry* package managers.
+The SDK can be installed with *uv*, *pip*, or *poetry* package managers.
+
+### uv
+
+*uv* is a fast Python package installer and resolver, designed as a drop-in replacement for pip and pip-tools. It's recommended for its speed and modern Python tooling capabilities.
+
+```bash
+uv add skylight-sdk
+```
 
 ### PIP
 
@@ -89,7 +97,7 @@ It's also possible to write a standalone Python script without needing to set up
 ```python
 #!/usr/bin/env -S uv run --script
 # /// script
-# requires-python = ">=3.9"
+# requires-python = ">=3.10"
 # dependencies = [
 #     "skylight-sdk",
 # ]
@@ -141,7 +149,8 @@ with Skylight(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -198,19 +207,19 @@ with Skylight(
 <details open>
 <summary>Available methods</summary>
 
-### [agent](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md)
+### [Agent](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md)
 
 * [run](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#run) - Run Agent
 * [stop](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#stop) - Stop Agent
 * [answer](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#answer) - Respond To Agent
 * [status](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/agent/README.md#status) - Get Agent State
 
-### [files](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md)
+### [Files](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md)
 
 * [upload](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md#upload) - Upload To Vm
 * [download](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/files/README.md#download) - Get File
 
-### [interact](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md)
+### [Interact](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md)
 
 * [click](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#click) - Click
 * [drag](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#drag) - Drag
@@ -221,8 +230,7 @@ with Skylight(
 * [scroll](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#scroll) - Scroll
 * [install](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/interact/README.md#install) - Install Applications
 
-
-### [windows](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md)
+### [Windows](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md)
 
 * [start](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#start) - Start Instance
 * [pause](https://github.com/skylight-ai/skylight-python-sdk/blob/master/docs/sdks/windows/README.md#pause) - Pause Instance
@@ -281,28 +289,18 @@ with Skylight(
 <!-- Start Error Handling [errors] -->
 ## Error Handling
 
-Handling errors in this SDK should largely match your expectations. All operations return a response object or raise an exception.
+[`SkylightError`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/skylighterror.py) is the base class for all HTTP error responses. It has the following properties:
 
-By default, an API error will raise a models.APIError exception, which has the following properties:
-
-| Property        | Type             | Description           |
-|-----------------|------------------|-----------------------|
-| `.status_code`  | *int*            | The HTTP status code  |
-| `.message`      | *str*            | The error message     |
-| `.raw_response` | *httpx.Response* | The raw HTTP response |
-| `.body`         | *str*            | The response content  |
-
-When custom error responses are specified for an operation, the SDK may also raise their associated exceptions. You can refer to respective *Errors* tables in SDK docs for more details on possible exception types for each operation. For example, the `start_async` method may raise the following exceptions:
-
-| Error Type                        | Status Code | Content Type     |
-| --------------------------------- | ----------- | ---------------- |
-| models.ForbiddenErrorResponse     | 403         | application/json |
-| models.HTTPValidationError        | 422         | application/json |
-| models.WindowsModelsErrorResponse | 500         | application/json |
-| models.APIError                   | 4XX, 5XX    | \*/\*            |
+| Property           | Type             | Description                                                                             |
+| ------------------ | ---------------- | --------------------------------------------------------------------------------------- |
+| `err.message`      | `str`            | Error message                                                                           |
+| `err.status_code`  | `int`            | HTTP response status code eg `404`                                                      |
+| `err.headers`      | `httpx.Headers`  | HTTP response headers                                                                   |
+| `err.body`         | `str`            | HTTP body. Can be empty string if no body is returned.                                  |
+| `err.raw_response` | `httpx.Response` | Raw HTTP response                                                                       |
+| `err.data`         |                  | Optional. Some errors may contain structured data. [See Error Classes](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#error-classes). |
 
 ### Example
-
 ```python
 import os
 from skylight_sdk import Skylight, models
@@ -319,19 +317,44 @@ with Skylight(
         # Handle response
         print(res)
 
-    except models.ForbiddenErrorResponse as e:
-        # handle e.data: models.ForbiddenErrorResponseData
-        raise(e)
-    except models.HTTPValidationError as e:
-        # handle e.data: models.HTTPValidationErrorData
-        raise(e)
-    except models.WindowsModelsErrorResponse as e:
-        # handle e.data: models.WindowsModelsErrorResponseData
-        raise(e)
-    except models.APIError as e:
-        # handle exception
-        raise(e)
+
+    except models.SkylightError as e:
+        # The base class for HTTP error responses
+        print(e.message)
+        print(e.status_code)
+        print(e.body)
+        print(e.headers)
+        print(e.raw_response)
+
+        # Depending on the method different errors may be thrown
+        if isinstance(e, models.ForbiddenErrorResponse):
+            print(e.data.detail)  # Optional[str]
 ```
+
+### Error Classes
+**Primary errors:**
+* [`SkylightError`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/skylighterror.py): The base class for HTTP error responses.
+  * [`HTTPValidationError`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/httpvalidationerror.py): Validation Error. Status code `422`. *
+  * [`ForbiddenErrorResponse`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/forbiddenerrorresponse.py): Returned when the request cannot be processed due to authentication or authorization issues. Status code `403`. *
+
+<details><summary>Less common errors (7)</summary>
+
+<br />
+
+**Network errors:**
+* [`httpx.RequestError`](https://www.python-httpx.org/exceptions/#httpx.RequestError): Base class for request errors.
+    * [`httpx.ConnectError`](https://www.python-httpx.org/exceptions/#httpx.ConnectError): HTTP client was unable to make a request to a server.
+    * [`httpx.TimeoutException`](https://www.python-httpx.org/exceptions/#httpx.TimeoutException): HTTP request timed out.
+
+
+**Inherit from [`SkylightError`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/skylighterror.py)**:
+* [`InteractModelsErrorResponse`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/interactmodelserrorresponse.py): Applicable to 14 of 20 methods.*
+* [`WindowsModelsErrorResponse`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/windowsmodelserrorresponse.py): Standard error response containing details about the error. Status code `500`. Applicable to 6 of 20 methods.*
+* [`ResponseValidationError`](https://github.com/skylight-ai/skylight-python-sdk/blob/master/./src/skylight_sdk/models/responsevalidationerror.py): Type mismatch between the response data and the expected Pydantic model. Provides access to the Pydantic validation error via the `cause` attribute.
+
+</details>
+
+\* Check [the method documentation](https://github.com/skylight-ai/skylight-python-sdk/blob/master/#available-resources-and-operations) to see if the error is applicable.
 <!-- End Error Handling [errors] -->
 
 <!-- Start Server Selection [server] -->
