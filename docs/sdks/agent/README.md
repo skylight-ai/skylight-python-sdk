@@ -1,5 +1,4 @@
 # Agent
-(*agent*)
 
 ## Overview
 
@@ -18,6 +17,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="run" method="post" path="/agent/run/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -63,6 +63,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="stop" method="post" path="/agent/stop/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -107,6 +108,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="answer" method="post" path="/agent/answer/{agent_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -152,6 +154,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="status" method="get" path="/agent/status/{agent_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
