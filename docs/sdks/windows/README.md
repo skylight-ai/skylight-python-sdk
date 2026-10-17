@@ -1,5 +1,4 @@
 # Windows
-(*windows*)
 
 ## Overview
 
@@ -22,6 +21,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="start" method="post" path="/windows/start" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -42,7 +42,8 @@ with Skylight(
 
 | Parameter                                                           | Type                                                                | Required                                                            | Description                                                         |
 | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| `request`                                                           | [models.InstanceRequest](../../models/instancerequest.md)           | :heavy_check_mark:                                                  | The request object to use for the request.                          |
+| `api_key`                                                           | *OptionalNullable[str]*                                             | :heavy_minus_sign:                                                  | Optional API key for authentication                                 |
+| `timeout_minutes`                                                   | *OptionalNullable[int]*                                             | :heavy_minus_sign:                                                  | Timeout in minutes before instance auto-termination                 |
 | `retries`                                                           | [Optional[utils.RetryConfig]](../../models/utils/retryconfig.md)    | :heavy_minus_sign:                                                  | Configuration to override the default retry behavior of the client. |
 
 ### Response
@@ -64,6 +65,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="pause" method="post" path="/windows/pause/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -106,6 +108,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="resume" method="post" path="/windows/resume/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -148,6 +151,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="terminate" method="post" path="/windows/terminate/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -190,6 +194,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="state" method="get" path="/windows/state/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
@@ -232,6 +237,7 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="instances" method="get" path="/windows/instances" -->
 ```python
 import os
 from skylight_sdk import Skylight
