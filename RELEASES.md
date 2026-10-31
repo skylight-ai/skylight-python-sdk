@@ -59,3 +59,13 @@ Based on:
 - [python v0.1.0] .
 ### Releases
 - [PyPI v0.1.0] https://pypi.org/project/skylight-sdk/0.1.0 - .
+
+## 2026-10-31 03:30:11
+### Changes
+Based on:
+- OpenAPI Doc  
+- Speakeasy CLI 1.805.0 (2.954.8) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [python v0.2.0] .
+### Releases
+- [PyPI v0.2.0] https://pypi.org/project/skylight-sdk/0.2.0 - .
