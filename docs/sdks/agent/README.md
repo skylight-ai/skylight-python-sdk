@@ -1,5 +1,4 @@
 # Agent
-(*agent*)
 
 ## Overview
 
@@ -18,13 +17,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="run" method="post" path="/agent/run/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.agent.run(instance_id="<id>", query="Search for something on the VM")
@@ -63,13 +63,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="stop" method="post" path="/agent/stop/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.agent.stop(instance_id="<id>")
@@ -107,13 +108,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="answer" method="post" path="/agent/answer/{agent_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.agent.answer(agent_id="<id>", request_body={})
@@ -152,13 +154,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="status" method="get" path="/agent/status/{agent_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.agent.status(agent_id="<id>")

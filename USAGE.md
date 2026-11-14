@@ -6,7 +6,7 @@ from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.windows.start()
@@ -17,7 +17,8 @@ with Skylight(
 
 </br>
 
-The same SDK client can also be used to make asychronous requests by importing asyncio.
+The same SDK client can also be used to make asynchronous requests by importing asyncio.
+
 ```python
 # Asynchronous Example
 import asyncio
@@ -27,7 +28,7 @@ from skylight_sdk import Skylight
 async def main():
 
     async with Skylight(
-        apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+        apikey=os.getenv("SKYLIGHT_APIKEY"),
     ) as skylight:
 
         res = await skylight.windows.start_async()
