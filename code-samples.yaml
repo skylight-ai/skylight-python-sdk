@@ -8,118 +8,118 @@ actions:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.agent.answer(agent_id=\"<id>\", request_body={})\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.agent.answer(agent_id=\"<id>\", request_body={})\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/agent/run/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.agent.run(instance_id=\"<id>\", query=\"Search for something on the VM\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.agent.run(instance_id=\"<id>\", query=\"Search for something on the VM\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/agent/status/{agent_id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.agent.status(agent_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.agent.status(agent_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/agent/stop/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.agent.stop(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.agent.stop(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/click/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.click(instance_id=\"<id>\", x=100, y=200)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nimport skylight_sdk\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.click(instance_id=\"<id>\", x=100, y=200, button=skylight_sdk.Button.LEFT, clicks=1)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/drag/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.drag(instance_id=\"<id>\", path=[\n        {\n            \"x\": 100,\n            \"y\": 200,\n        },\n    ], step=5)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nimport skylight_sdk\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.drag(instance_id=\"<id>\", path=[\n        {\n            \"x\": 100,\n            \"y\": 200,\n        },\n    ], button=skylight_sdk.DragRequestButton.LEFT, step=5)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/install/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.install(instance_id=\"<id>\", packages=[\n        \"<value>\",\n    ])\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.install(instance_id=\"<id>\", packages=[\n        \"<value 1>\",\n    ])\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/keypress/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.keypress(instance_id=\"<id>\", keys=[\n        \"super\",\n        \"shift\",\n        \"s\",\n    ])\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.keypress(instance_id=\"<id>\", keys=[\n        \"super\",\n        \"shift\",\n        \"s\",\n    ])\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/move/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.move(instance_id=\"<id>\", x=100, y=200)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.move(instance_id=\"<id>\", x=100, y=200)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/screenshot/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.screenshot(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.screenshot(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/scroll/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.scroll(instance_id=\"<id>\", x=100, y=200, step=20)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.scroll(instance_id=\"<id>\", x=100, y=200, scroll_x=0, scroll_y=100, step=20)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/interact/type/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.interact.type(instance_id=\"<id>\", text=\"Hello, world!\", interval=0.05)\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.interact.type(instance_id=\"<id>\", text=\"Hello, world!\", interval=0.05)\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/files/download/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.files.download(instance_id=\"<id>\", request_body={\n        \"key\": \"<value>\",\n    })\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.files.download(instance_id=\"<id>\", request_body={\n        \"key\": \"<value>\",\n        \"key1\": \"<value>\",\n    })\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/files/upload/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.files.upload(instance_id=\"<id>\", s3_url=\"https://needy-mallard.info/\", file_name=\"example.file\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.files.upload(instance_id=\"<id>\", s3_url=\"https://great-presume.info\", file_name=\"example.file\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/instances"]["get"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.instances()\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.instances()\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/pause/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.pause(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.pause(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/resume/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.resume(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.resume(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/start"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.start()\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.start()\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/state/{instance_id}"]["get"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.state(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.state(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
   - target: $["paths"]["/windows/terminate/{instance_id}"]["post"]
     update:
       "x-codeSamples":
         - "lang": "python"
           "label": "Python (SDK)"
-          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\", \"\"),\n) as skylight:\n\n    res = skylight.windows.terminate(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
+          "source": "import os\nfrom skylight_sdk import Skylight\n\n\nwith Skylight(\n    apikey=os.getenv(\"SKYLIGHT_APIKEY\"),\n) as skylight:\n\n    res = skylight.windows.terminate(instance_id=\"<id>\")\n\n    # Handle response\n    print(res)"
