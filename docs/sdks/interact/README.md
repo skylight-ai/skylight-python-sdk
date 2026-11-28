@@ -1,5 +1,4 @@
 # Interact
-(*interact*)
 
 ## Overview
 
@@ -29,16 +28,18 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="click" method="post" path="/interact/click/{instance_id}" -->
 ```python
 import os
+import skylight_sdk
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
-    res = skylight.interact.click(instance_id="<id>", x=100, y=200)
+    res = skylight.interact.click(instance_id="<id>", x=100, y=200, button=skylight_sdk.Button.LEFT, clicks=1)
 
     # Handle response
     print(res)
@@ -80,13 +81,15 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="drag" method="post" path="/interact/drag/{instance_id}" -->
 ```python
 import os
+import skylight_sdk
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.drag(instance_id="<id>", path=[
@@ -94,7 +97,7 @@ with Skylight(
             "x": 100,
             "y": 200,
         },
-    ], step=5)
+    ], button=skylight_sdk.DragRequestButton.LEFT, step=5)
 
     # Handle response
     print(res)
@@ -132,13 +135,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="screenshot" method="post" path="/interact/screenshot/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.screenshot(instance_id="<id>")
@@ -176,13 +180,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="move" method="post" path="/interact/move/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.move(instance_id="<id>", x=100, y=200)
@@ -222,13 +227,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="keypress" method="post" path="/interact/keypress/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.keypress(instance_id="<id>", keys=[
@@ -272,13 +278,14 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="type" method="post" path="/interact/type/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.type(instance_id="<id>", text="Hello, world!", interval=0.05)
@@ -318,16 +325,17 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="scroll" method="post" path="/interact/scroll/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
-    res = skylight.interact.scroll(instance_id="<id>", x=100, y=200, step=20)
+    res = skylight.interact.scroll(instance_id="<id>", x=100, y=200, scroll_x=0, scroll_y=100, step=20)
 
     # Handle response
     print(res)
@@ -367,17 +375,18 @@ Requires API key authentication.
 
 ### Example Usage
 
+<!-- UsageSnippet language="python" operationID="install" method="post" path="/interact/install/{instance_id}" -->
 ```python
 import os
 from skylight_sdk import Skylight
 
 
 with Skylight(
-    apikey=os.getenv("SKYLIGHT_APIKEY", ""),
+    apikey=os.getenv("SKYLIGHT_APIKEY"),
 ) as skylight:
 
     res = skylight.interact.install(instance_id="<id>", packages=[
-        "<value>",
+        "<value 1>",
     ])
 
     # Handle response

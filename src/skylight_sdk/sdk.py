@@ -6,15 +6,19 @@ from .sdkconfiguration import SDKConfiguration
 from .utils.logger import Logger, get_default_logger
 from .utils.retries import RetryConfig
 import httpx
+import importlib
 from skylight_sdk import models, utils
 from skylight_sdk._hooks import SDKHooks
-from skylight_sdk.agent import Agent
-from skylight_sdk.files import Files
-from skylight_sdk.interact import Interact
 from skylight_sdk.types import OptionalNullable, UNSET
-from skylight_sdk.windows import Windows
-from typing import Any, Callable, Dict, Optional, Union, cast
+import sys
+from typing import Any, Callable, Dict, Optional, TYPE_CHECKING, Union, cast
 import weakref
+
+if TYPE_CHECKING:
+    from skylight_sdk.agent import Agent
+    from skylight_sdk.files import Files
+    from skylight_sdk.interact import Interact
+    from skylight_sdk.windows import Windows
 
 
 class Skylight(BaseSDK):
@@ -35,17 +39,23 @@ class Skylight(BaseSDK):
 
     """
 
-    windows: Windows
-    interact: Interact
-    agent: Agent
-    files: Files
+    windows: "Windows"
+    interact: "Interact"
+    agent: "Agent"
+    files: "Files"
+    _sub_sdk_map = {
+        "windows": ("skylight_sdk.windows", "Windows"),
+        "interact": ("skylight_sdk.interact", "Interact"),
+        "agent": ("skylight_sdk.agent", "Agent"),
+        "files": ("skylight_sdk.files", "Files"),
+    }
 
     def __init__(
         self,
         apikey: Optional[Union[Optional[str], Callable[[], Optional[str]]]] = None,
         server_idx: Optional[int] = None,
-        server_url: Optional[str] = None,
         url_params: Optional[Dict[str, str]] = None,
+        server_url: Optional[str] = None,
         client: Optional[HttpClient] = None,
         async_client: Optional[AsyncHttpClient] = None,
         retry_config: OptionalNullable[RetryConfig] = UNSET,
@@ -65,7 +75,7 @@ class Skylight(BaseSDK):
         """
         client_supplied = True
         if client is None:
-            client = httpx.Client()
+            client = httpx.Client(follow_redirects=True)
             client_supplied = False
 
         assert issubclass(
@@ -74,7 +84,7 @@ class Skylight(BaseSDK):
 
         async_client_supplied = True
         if async_client is None:
-            async_client = httpx.AsyncClient()
+            async_client = httpx.AsyncClient(follow_redirects=True)
             async_client_supplied = False
 
         if debug_logger is None:
@@ -85,7 +95,9 @@ class Skylight(BaseSDK):
         ), "The provided async_client must implement the AsyncHttpClient protocol."
 
         security: Any = None
-        if callable(apikey):
+        if apikey is None:
+            security = None
+        elif callable(apikey):
             # pylint: disable=unnecessary-lambda-assignment
             security = lambda: models.Security(apikey=apikey())
         else:
@@ -109,9 +121,13 @@ class Skylight(BaseSDK):
                 timeout_ms=timeout_ms,
                 debug_logger=debug_logger,
             ),
+            parent_ref=self,
         )
 
         hooks = SDKHooks()
+
+        # pylint: disable=protected-access
+        self.sdk_configuration.__dict__["_hooks"] = hooks
 
         current_server_url, *_ = self.sdk_configuration.get_server_details()
         server_url, self.sdk_configuration.client = hooks.sdk_init(
@@ -119,9 +135,6 @@ class Skylight(BaseSDK):
         )
         if current_server_url != server_url:
             self.sdk_configuration.server_url = server_url
-
-        # pylint: disable=protected-access
-        self.sdk_configuration.__dict__["_hooks"] = hooks
 
         weakref.finalize(
             self,
@@ -133,13 +146,43 @@ class Skylight(BaseSDK):
             self.sdk_configuration.async_client_supplied,
         )
 
-        self._init_sdks()
+    def dynamic_import(self, modname, retries=3):
+        for attempt in range(retries):
+            try:
+                return importlib.import_module(modname)
+            except KeyError:
+                # Clear any half-initialized module and retry
+                sys.modules.pop(modname, None)
+                if attempt == retries - 1:
+                    break
+        raise KeyError(f"Failed to import module '{modname}' after {retries} attempts")
 
-    def _init_sdks(self):
-        self.windows = Windows(self.sdk_configuration)
-        self.interact = Interact(self.sdk_configuration)
-        self.agent = Agent(self.sdk_configuration)
-        self.files = Files(self.sdk_configuration)
+    def __getattr__(self, name: str):
+        if name in self._sub_sdk_map:
+            module_path, class_name = self._sub_sdk_map[name]
+            try:
+                module = self.dynamic_import(module_path)
+                klass = getattr(module, class_name)
+                instance = klass(self.sdk_configuration, parent_ref=self)
+                setattr(self, name, instance)
+                return instance
+            except ImportError as e:
+                raise AttributeError(
+                    f"Failed to import module {module_path} for attribute {name}: {e}"
+                ) from e
+            except AttributeError as e:
+                raise AttributeError(
+                    f"Failed to find class {class_name} in module {module_path} for attribute {name}: {e}"
+                ) from e
+
+        raise AttributeError(
+            f"'{type(self).__name__}' object has no attribute '{name}'"
+        )
+
+    def __dir__(self):
+        default_attrs = list(super().__dir__())
+        lazy_attrs = list(self._sub_sdk_map.keys())
+        return sorted(list(set(default_attrs + lazy_attrs)))
 
     def __enter__(self):
         return self
